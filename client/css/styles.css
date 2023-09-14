@@ -10878,7 +10878,7 @@ p {
 }
 
 .bg-faded {
-  background-color:burlywood;
+  background-color:rgba(226, 172, 0, 0.95);
 }
 
 .btn-xl {
