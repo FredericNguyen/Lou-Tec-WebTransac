@@ -10826,7 +10826,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(rgba(249, 245, 172, 0.4), rgba(249, 245, 172, 0.4)), url("../assets/img/bg.jpg");
+  background-image: linear-gradient(rgba(104, 217, 219, 0.4), rgba(34, 217, 219, 0.4)), url("../assets/img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10955,7 +10955,8 @@ p {
 }
 
 .footer {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color:#000;
+  color: white;
 }
 
 .intro {
