@@ -42,7 +42,7 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 230, 167, 86;
+  --bs-primary-rgb: 230, 86, 86;
   --bs-secondary-rgb: 47, 23, 15;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -8036,7 +8036,7 @@ textarea.form-control-lg {
 /* rtl:end:remove */
 .text-primary {
   --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  color: (rgba(249, 96, 0, 0.8), var(--bs-text-opacity)) !important;
 }
 
 .text-secondary {
@@ -10826,7 +10826,7 @@ textarea.form-control-lg {
   }
 }
 body {
-  background-image: linear-gradient(rgba(47, 23, 15, 0.65), rgba(47, 23, 15, 0.65)), url("../assets/img/bg.jpg");
+  background-image: linear-gradient(rgba(249, 245, 172, 0.4), rgba(249, 245, 172, 0.4)), url("../assets/img/bg.jpg");
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -10837,7 +10837,7 @@ p {
 }
 
 .text-faded {
-  color: #f6e1c5;
+  color:black;
 }
 
 .site-heading {
@@ -10878,7 +10878,7 @@ p {
 }
 
 .bg-faded {
-  background-color: #f6e1c5;
+  background-color:burlywood;
 }
 
 .btn-xl {
@@ -10891,14 +10891,14 @@ p {
 }
 
 #mainNav {
-  background-color: rgba(47, 23, 15, 0.9);
+  background-color:#000;
   font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 #mainNav .navbar-brand {
   color: #e6a756;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(256, 256, 256, 1);
   font-weight: 800;
 }
 #mainNav .navbar-nav .nav-item.active .nav-link {
