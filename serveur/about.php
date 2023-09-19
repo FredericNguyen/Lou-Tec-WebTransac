@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+    <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Business Casual - Start Bootstrap Theme</title>
-        <link rel="icon" type="image/x-icon" href="client/assets/favicon.ico" />
+        <title>REN-TEC - About</title>
+        <link rel="icon" type="image/x-icon" href="../client/assets/favicon.ico" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
-        <link rel="stylesheet" href="client/utilitaires/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="client/utilitaires/font-awesome-4.7.0/css/font-awesome.min.css">
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="client/css/styles.css" rel="stylesheet" />
-        <script src="client/utilitaires/jquery-3.6.3.min.js"></script>
-        <script src="client/js/global.js"></script>
+        <link rel="stylesheet" href="../client/utilitaires/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../client/utilitaires/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../client/css/styles.css">
+        <script src="../client/utilitaires/jquery-3.6.3.min.js"></script>
+        <script src="../client/js/global.js"></script>
     </head>
     <body>
-        <header>
-            <h1 class="site-heading text-center text-faded d-none d-lg-block">
-                <span class="site-heading-upper text-primary mb-3">A Free Bootstrap Business Theme</span>
-                <span class="site-heading-lower">Business Casual</span>
-            </h1>
-        </header>
+        <?php
+            require_once('./includes/header.php')
+        ?>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
-                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="../index.php">REN-TEC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.html">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.html">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="products.html">Products</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="store.html">Store</a></li>
+                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="../index.php">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.php">About</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="devenirMembre.php">Devenir Membre</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="connexion.php">Connexion</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <section class="page-section about-heading">
             <div class="container">
-                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="client/assets/img/about.jpg" alt="..." />
+                <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="../client/assets/img/about.jpg" alt="..." />
                 <div class="about-heading-content">
                     <div class="row">
                         <div class="col-xl-9 col-lg-10 mx-auto">
@@ -62,12 +58,12 @@
                 </div>
             </div>
         </section>
-        <footer class="footer text-faded text-center py-5">
-            <div class="container"><p class="m-0 small">Copyright &copy; Your Website 2023</p></div>
-        </footer>
+        <?php
+            require_once('./includes/footer.php')
+        ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="client/js/scripts.js"></script>
+        <script src="../client/js/scripts.js"></script>
     </body>
 </html>
