@@ -53,15 +53,27 @@
         <section class="page-section cta">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-9 mx-auto">
-                        <div class="cta-inner bg-faded text-center rounded">
-                            <h2 class="section-heading mb-4">
-                                <span class="section-heading-upper">Our Promise</span>
-                                <span class="section-heading-lower">To You</span>
-                            </h2>
-                            <p class="mb-0">When you walk into our shop to start your day, we are dedicated to providing you with friendly service, a welcoming atmosphere, and above all else, excellent products made with the highest quality ingredients. If you are not satisfied, please let us know and we will do whatever we can to make things right!</p>
+                        <div class="card" style="width: 18rem;">
+                            <img src="./client/assets/img/products-01.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">RÉCUREUSE (LAVEUSE) À PLANCHER 28″-34″</h5>
+                                <p class="card-text"><span>Prix Jour: 236$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
+                            </div>
                         </div>
-                    </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="./client/assets/img/products-02.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">CHARIOT TÉLESCOPIQUE 10000 LB - DIECI - ICARUS 45.17</h5>
+                                <p class="card-text"><span>Prix Jour: 910$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="./client/assets/img/products-03.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">CÂBLE DE NYLON - 7/8″ X 300</h5>
+                                <p class="card-text"><span>Prix Jour: 51$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
+                            </div>
+                        </div>
                 </div>
             </div>
         </section>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>REN-TEC - About</title>
+        <title>REN-TEC - Connexion</title>
         <link rel="icon" type="image/x-icon" href="../client/assets/favicon.ico" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
@@ -27,7 +27,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                    <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="../index.php">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="../index.php">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="about.php">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="devenirMembre.php">Devenir Membre</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="connexion.php">Connexion</a></li>
@@ -35,6 +35,62 @@
                 </div>
             </div>
         </nav>
+        <section class="page-section cta">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto">
+                        <div class="cta-inner bg-faded text-center rounded">
+                            <h2 class="section-heading mb-5">
+                                <span class="section-heading-upper">Come On In</span>
+                                <span class="section-heading-lower">We're Open</span>
+                            </h2>
+                            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Sunday
+                                    <span class="ms-auto">Closed</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Monday
+                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Tuesday
+                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Wednesday
+                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Thursday
+                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Friday
+                                    <span class="ms-auto">7:00 AM to 8:00 PM</span>
+                                </li>
+                                <li class="list-unstyled-item list-hours-item d-flex">
+                                    Saturday
+                                    <span class="ms-auto">9:00 AM to 5:00 PM</span>
+                                </li>
+                            </ul>
+                            <p class="address mb-5">
+                                <em>
+                                    <strong>1116 Orchard Street</strong>
+                                    <br />
+                                    Golden Valley, Minnesota
+                                </em>
+                            </p>
+                            <p class="mb-0">
+                                <small><em>Call Anytime</em></small>
+                                <br />
+                                (317) 585-8468
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="page-section about-heading">
             <div class="container">
                 <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="../client/assets/img/about.jpg" alt="..." />

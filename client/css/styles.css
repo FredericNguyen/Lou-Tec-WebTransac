@@ -11028,3 +11028,8 @@ p {
 .address strong {
   font-size: 1.2rem;
 }
+
+.row {
+  gap: 2em;
+  justify-content: center;
+}
