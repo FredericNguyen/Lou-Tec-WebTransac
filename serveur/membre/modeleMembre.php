@@ -15,20 +15,22 @@
             $stmt->bind_param("s",$courriel);
             $stmt->execute();
             $reponse = $stmt->get_result();
+            
             if($reponse->num_rows == 0){
-                $requete = "INSERT INTO membres VALUES (0,?,?,?,?,?)";
+               // $requete1 = "INSERT INTO membres VALUES (0,?,?,?,?,?)";
+                $requete = "INSERT INTO membres (idm, nom, prenom, courriel, sexe, datenaissance) VALUES (0,?,?,?,?,?)";
                 $stmt = $connexion->prepare($requete);
                 $stmt->bind_param("sssss",$nom,$prenom,$courriel,$sexe,$daten);
                 $stmt->execute();
-                $idm = $connection->insert_id; //apres une insertion
 
-                $requete = "INSERT INTO membres VALUES (?,?,'M','A',?)";
+                $idm = $connexion->insert_id; //apres une insertion
+                $requete = "INSERT INTO connexion VALUES (?,?,'M','A',?)";
                 $stmt = $connexion->prepare($requete);
                 $stmt->bind_param("ssi",$courriel,$mdp,$idm);
                 $stmt->execute();
                 $msg = '<h3>Membre '.$prenom.', '.$nom.' est bien enregistre'.'</h3>';
             }
-            else $msg = "<br><b style ='color:red'>Ce message existe deja</b><br>";  
+            else $msg = "<br><b style ='color:red'>Ce courriel existe deja</b><br>";  
         }catch(Exception $e){
             $msg = 'Erreur: '.$e->getMessage().'<br>';
         }finally{

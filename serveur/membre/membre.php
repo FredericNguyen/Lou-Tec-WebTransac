@@ -27,7 +27,7 @@
     </head>
     <body>
         <?php
-            require_once('serveur/includes/header.php')
+            require_once('../includes/header.php');
         ?>
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
@@ -90,7 +90,7 @@
             </div>
         </section>
         <?php
-            require_once('serveur/includes/footer.php')
+            require_once('../includes/footer.php')
         ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

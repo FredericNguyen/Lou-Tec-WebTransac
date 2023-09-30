@@ -5,14 +5,14 @@
         $courriel = $_POST['courrielco'];
         $mdp = $_POST['mdpco'];
 
-        $msg = Mdl_connexion(courriel,$mdp);
+        $msg = Mdl_connexion($courriel,$mdp);
         return msg;
     }
 
     function Ctr_Deconnexion(){
         unset($_SESSION);
         session_destroy(); //on detruit le fichier du session
-        header('Location: ../../serveur/index.php');//on se redirige dans le page d'accueil
+        header('Location: ../../index.php');//on se redirige dans le page d'accueil
         exit();
     }
 

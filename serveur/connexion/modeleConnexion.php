@@ -6,7 +6,7 @@
         try{
             //on test l'existance du membre dans la table connexion
             $requete = "SELECT * FROM connexion WHERE courriel = ? AND password =?";
-            $stmt = $connexion->prepare(requete);
+            $stmt = $connexion->prepare($requete);
             $stmt->bind_param("ss",$courriel,$mdp);
             $stmt->execute();
             $reponse = $stmt->get_result();
@@ -14,7 +14,7 @@
                 $ligne = $reponse->fetch_object();
                 if($ligne->statut === 'A' ){
                     $requete = "SELECT * FROM membres WHERE courriel = ?";
-                    $stmt = $connexion->prepare(requete);
+                    $stmt = $connexion->prepare($requete);
                     $stmt->bind_param("s",$courriel);
                     $stmt->execute();
                     $reponse = $stmt->get_result();
