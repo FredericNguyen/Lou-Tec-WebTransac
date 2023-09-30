@@ -18,20 +18,20 @@
                     $stmt->bind_param("s",$courriel);
                     $stmt->execute();
                     $reponse = $stmt->get_result();
-                    $ligne = $reponse->fetch_object();
+                    $ligne2 = $reponse->fetch_object();
                     if($ligne->role === 'M'){
                         //creation des variables de session
                         $_SESSION['role'] = 'M';
-                        $_SESSION['prenom'] =  $reponse->prenom;
-                        $_SESSION['nom'] =  $reponse->nom;
+                        $_SESSION['prenom'] =  $ligne2->prenom;
+                        $_SESSION['nom'] =  $ligne2->nom;
                         header('Location: ../membre/membre.php'); //on se dirige vers la page membre.
                         exit();
                     }
                     else{
                         //creation des variables de session
                         $_SESSION['role'] = 'A';
-                        $_SESSION['prenom'] =  $reponse->prenom;
-                        $_SESSION['nom'] =  $reponse->nom;
+                        $_SESSION['prenom'] =  $ligne2->prenom;
+                        $_SESSION['nom'] =  $ligne2->nom;
                         header('Location: ../admin/admin.php'); //on se dirige vers la page membre.
                         exit();
                     }

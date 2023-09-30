@@ -1,4 +1,7 @@
 <?php
+
+    if(isset($_COOKIE['PHPSESSID']))
+        unset($_COOKIE['PHPSESSID']);
     session_start(); //demande au serveur de creer une session avec une cle si elle n'existe pas deja 
 ?>
 <!DOCTYPE html>
@@ -32,8 +35,8 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/about.php">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/devenirMembre.php">Devenir Membre</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/connexion/controleurConnexion.php">Connexion</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalAjouterMembre();">Devenir Membre</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalConnecterMembre()">Connexion</a></li>
                     </ul>
                 </div>
             </div>

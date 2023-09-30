@@ -11,6 +11,9 @@ const validerFormEnreg = () => {
     }
 } 
 
-const afficherFormModalMembre = () =>{
+const afficherFormModalAjouterMembre = () =>{
     $('#enregModal').modal('show');
+}
+const afficherFormModalConnecterMembre = () => {
+    $('#modalConnexion').modal('show');
 }
