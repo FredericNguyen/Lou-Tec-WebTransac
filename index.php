@@ -29,8 +29,8 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/about.php">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/devenirMembre.php">Devenir Membre</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/connexion.php">Connexion</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/membre/controleurMembre.php">Devenir Membre</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/connexion/controleurConnexion.php">Connexion</a></li>
                     </ul>
                 </div>
             </div>
@@ -98,11 +98,11 @@
                                 <input type="email" class="form-control is-valid" id="courriel" name="courriel" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="pass" class="form-label">Mot de passe</label>
+                                <label for="mdp" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdp" name="mdp" required>
                             </div>
                             <div class="col-md-6">
-                                <label for="cpass" class="form-label">Confirmer mot de passe</label>
+                                <label for="mdpc" class="form-label">Confirmer mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdpc" name="mdpc" required>
                                 <span id="msgPass"></span>
                             </div>
@@ -145,7 +145,7 @@
                         <div class="modal-body">
                             <form class="row g-3" id="formConnexion" action="serveur/connexion/controleurConnexion.php" method="POST">
                                 <div class="col-md-4">
-                                    <label for="courriel" class="form-label">Courriel</label>
+                                    <label for="courrielco" class="form-label">Courriel</label>
                                     <input type="email" class="form-control" id="courrielco" name="courrielco" value="" required>
                                 </div>
                                 <div class="col-md-6">

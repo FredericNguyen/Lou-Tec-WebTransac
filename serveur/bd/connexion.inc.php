@@ -1,5 +1,5 @@
 <?php
-    require_once("../bd/connexion.inc.php");
+    require_once("../env/env.inc.php");
     //on fait la connexion a travers mysqli
     $connexion = new mysqli(SERVEUR, USAGER, MDP, BD);
     if($connexion -> connect_errno){

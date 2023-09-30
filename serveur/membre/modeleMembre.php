@@ -1,6 +1,6 @@
 <?php
     require_once("../bd/connexion.inc.php");
-    function Mdl_ajouter($membre){
+    function Mdl_ajouter($membre, $mdp){
         global $connexion;
         $msg = "";
         try{
@@ -9,15 +9,30 @@
             $courriel = $membre->getCourriel();
             $sexe = $membre->getSexe();
             $daten = $membre->getDaten();
-            $requete = "INSERT INTO membres VALUES (0,?,?,?,?,?)";
-            $stmt = $connexion->prepare(requete);
-            $stmt->bind_param("sssss",0,$nom,$prenom,$courriel,$sexe,$daten);
+            //On va voir si le courriel existe deja dans la table menbres
+            $requete = "SELECT * FROM membres WHERE courriel = ?";
+            $stmt = $connexion->prepare($requete);
+            $stmt->bind_param("s",$courriel);
             $stmt->execute();
-            $msg = 'Membre bien enregistre';
+            $reponse = $stmt->get_result();
+            if($reponse->num_rows == 0){
+                $requete = "INSERT INTO membres VALUES (0,?,?,?,?,?)";
+                $stmt = $connexion->prepare($requete);
+                $stmt->bind_param("sssss",0,$nom,$prenom,$courriel,$sexe,$daten);
+                $stmt->execute();
+                $idm = $connection->insert_id; 
+
+                $requete = "INSERT INTO membres VALUES (?,?,'M','A',?)";
+                $stmt = $connexion->prepare($requete);
+                $stmt->bind_param("ssi",$courriel,$mdp,$idm);
+                $stmt->execute();
+                $msg = '<h3>Membre '.$prenom.', '.$nom.' est bien enregistre'.'</h3>';
+            }
+            else $msg = "<br><b style ='color:red'>Ce message existe deja</b><br>";  
         }catch(Exception $e){
-            $msg = 'Probleme dans la connexion a la base de donnee: '.$e;
+            $msg = 'Erreur: '.$e->getMessage().'<br>';
         }finally{
-            return msg;
+            return $msg; 
         }
     }
 ?>

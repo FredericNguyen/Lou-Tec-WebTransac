@@ -7,51 +7,51 @@
         private $sexe;
         private $daten;
 
-        function __construct($idm, $nom, $prenom, $courriel, $sexe, $daten){
-            $this->idm = idm;
+        public function __construct($idm, $nom, $prenom, $courriel, $sexe, $daten){
+            $this->idm = $idm;
             $this->setNom($nom);
             $this->setPrenom($prenom);
             $this->setCourriel($courriel);
             $this->setSexe($sexe);
             $this->setDaten($daten);
         }
-        function setIdm($idm){
+        public function setIdm($idm){
             $this->idm = idm;
         }
-        function setNom($nom){
+        public function setNom($nom){
             $this->nom = $nom;
         }
-        function setPrenom($prenom){
+        public function setPrenom($prenom){
             $this->prenom = $prenom;
         }
-        function setCourriel($courriel){
+        public function setCourriel($courriel){
             $this->courriel = $courriel;
         }
-        function setSexe($sexe){
+        public function setSexe($sexe){
             $this->sexe = $sexe;
         }
-        function setDaten($daten){
+        public function setDaten($daten){
             $this->daten = $daten;
         }
-        function getIdm(){
+        public function getIdm(){
             return $this->idm;
         }
-        function getNom(){
+        public function getNom(){
             return $this->nom;
         }
-        function getPrenom(){
+        public function getPrenom(){
             return $this->prenom;
         }
-        function getCourriel(){
+        public function getCourriel(){
             return $this->courriel;
         }
-        function getSexe(){
+        public function getSexe(){
             return $this->sexe;
         }
-        function getDaten(){
+        public function getDaten(){
             return $this->daten;
         }
-        function afficher(){
+        public function afficher(){
             $resultat = $this->idm.'  '.$this->prenom.'  '.$this->courriel.'  ';
             $sexe = "";
             if($this->sexe === 'M'){
@@ -60,7 +60,7 @@
             elseif ($sexe->sexe === 'F'){
                 $sexe = 'Feminin';
             }
-            else $sexe = 'Autre';
+            else $sexe = 'Autres';
             $resultat .= $sexe.'  '. $daten;
             return resultat;
         }
