@@ -32,7 +32,7 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/about.php">About</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/membre/controleurMembre.php">Devenir Membre</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/devenirMembre.php">Devenir Membre</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/connexion/controleurConnexion.php">Connexion</a></li>
                     </ul>
                 </div>

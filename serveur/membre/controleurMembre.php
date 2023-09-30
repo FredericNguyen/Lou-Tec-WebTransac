@@ -10,7 +10,7 @@
 
         $membre = new Membre($idm, $nom, $prenom, $courriel, $sexe, $daten);
         $msg = Mdl_ajouter($membre,$_POST['mdp']);
-        return msg;
+        return $msg;
     }
     $msg = Ctr_ajouter();
     echo $msg;
