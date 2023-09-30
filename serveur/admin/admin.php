@@ -1,3 +1,12 @@
+<?php
+    session_start(); 
+    if(!isset($_SESSION['role'])){
+        //on redirige tous les demandes de cette page a la page d'accueil si pas de connexion
+        header('Location: ../../index.php');
+        exit();
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

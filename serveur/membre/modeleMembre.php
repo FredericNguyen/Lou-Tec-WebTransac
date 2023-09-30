@@ -18,9 +18,9 @@
             if($reponse->num_rows == 0){
                 $requete = "INSERT INTO membres VALUES (0,?,?,?,?,?)";
                 $stmt = $connexion->prepare($requete);
-                $stmt->bind_param("sssss",0,$nom,$prenom,$courriel,$sexe,$daten);
+                $stmt->bind_param("sssss",$nom,$prenom,$courriel,$sexe,$daten);
                 $stmt->execute();
-                $idm = $connection->insert_id; 
+                $idm = $connection->insert_id; //apres une insertion
 
                 $requete = "INSERT INTO membres VALUES (?,?,'M','A',?)";
                 $stmt = $connexion->prepare($requete);

@@ -1,3 +1,6 @@
+<?php
+    session_start(); //demande au serveur de creer une session avec une cle si elle n'existe pas deja 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -149,7 +152,7 @@
                                     <input type="email" class="form-control" id="courrielco" name="courrielco" value="" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="pass" class="form-label">Mot Passe</label>
+                                    <label for="mdpco" class="form-label">Mot Passe</label>
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
                                 <input type="hidden" name="action" value="connexion">
