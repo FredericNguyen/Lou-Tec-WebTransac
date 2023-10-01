@@ -2,7 +2,11 @@
 
     if(isset($_COOKIE['PHPSESSID']))
         unset($_COOKIE['PHPSESSID']);
-    session_start(); //demande au serveur de creer une session avec une cle si elle n'existe pas deja 
+    session_start(); //demande au serveur de creer une session avec une cle si elle n'existe pas deja
+    $msg="";
+    if(isset($_GET['msg'])){
+        $msg = $_GET['msg'];
+    } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +26,7 @@
         <script src="client/utilitaires/jquery-3.6.3.min.js"></script>
         <script src="client/js/global.js"></script>
     </head>
-    <body>
+    <body onLoad='montrerToast("<?php echo $msg; ?>");'>
         <?php
             require_once('serveur/includes/header.php')
         ?>
@@ -34,14 +38,27 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/about.php">About</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="C:\utilisateurs\ablak\xampp\htdocs\ProjetWebTransactionel\Lou-Tec-WebTransac\serveur\about.php">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalAjouterMembre();">Devenir Membre</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalConnecterMembre()">Connexion</a></li>
                     </ul>
                 </div>
             </div>
+            
         </nav>
         <section class="page-section clearfix">
+        <!-- Pour le Toast  -->
+        <div class="toast styleToast" style="background-color: crimson" background-color: crimson;id="textToast" role="status" aria-live="polite" aria-atomic="true" data-delay="5000">
+            <div class="toast-header">
+                <img src="client/assets/message2.png" class="rounded mr-2">
+                <strong id="msgToast" class="mr-auto">Message</strong>
+                <!-- <button type="button" class="close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+            </div>
+            <div id="textToast" class="toast-body">
+            </div>
+        </div>
             <div class="container">
                 <div class="intro">
                     <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="client/assets/img/intro.jpg" alt="..." />
@@ -90,7 +107,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form id="formEnreg" action="serveur/membre/controleurMembre.php" method="POST" enctype="multipart/form-data" class="row g-3" onSubmit="return validerFormEnreg();">
+                        <form id="formEnreg" action="serveur/membre/controleurMembre.php" method="POST" enctype="multipart/form-data" class="row g-3" onsubmit="return validerFormEnreg();">
                             <div class="col-md-4">
                                 <label for="prenom" class="form-label">Prénom</label>
                                 <input type="text" class="form-control is-valid" id="prenom" name="prenom" required>
@@ -99,15 +116,15 @@
                                 <label for="nom" class="form-label">Nom</label>
                                 <input type="text" class="form-control is-valid" id="nom" name="nom" required>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <label for="courriel" class="form-label">Courriel</label>
                                 <input type="email" class="form-control is-valid" id="courriel" name="courriel" required>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <label for="mdp" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdp" name="mdp" required>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-8">
                                 <label for="mdpc" class="form-label">Confirmer mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdpc" name="mdpc" required>
                                 <span id="msgPass"></span>
@@ -125,7 +142,7 @@
                                 <label for="daten" class="form-label">Date de naissance</label>
                                 <input type="date" class="form-control is-valid" id="daten" name="daten">
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-10">
                                 <label for="photo" class="form-label">Photo</label>
                                 <input type="file" class="form-control is-valid" id="photo" name="photo">
                             </div> 
@@ -150,11 +167,11 @@
                         </div>
                         <div class="modal-body">
                             <form class="row g-3" id="formConnexion" action="serveur/connexion/controleurConnexion.php" method="POST">
-                                <div class="col-md-4">
+                                <div class="col-md-8">
                                     <label for="courrielco" class="form-label">Courriel</label>
                                     <input type="email" class="form-control" id="courrielco" name="courrielco" value="" required>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <label for="mdpco" class="form-label">Mot Passe</label>
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
@@ -169,7 +186,7 @@
             </div>
             </div>
         </section>
-
+        
         <?php
             require_once('serveur/includes/footer.php')
         ?>

@@ -18,8 +18,5 @@
         $msg = Mdl_ajouter($membre,$_POST['mdp']);
         return $msg;
     }
-    $msg = Ctr_ajouter();
-    echo $msg;
+    Ctr_ajouter();
 ?>
-<br>
-<a href="../../index.php">Retour a la page d'accueil"</a>

@@ -28,13 +28,15 @@
                 $stmt = $connexion->prepare($requete);
                 $stmt->bind_param("ssi",$courriel,$mdp,$idm);
                 $stmt->execute();
-                $msg = '<h3>Membre '.$prenom.', '.$nom.' est bien enregistre'.'</h3>';
+                $msg="Membre ".$membre->getPrenom().", ".$membre->getNom()." bien enregistré.";
+            } else { // Courriel existe déjà
+                $msg = "Ce courriel est déja en cours d'utilisation !!!";
             }
-            else $msg = "<br><b style ='color:red'>Ce courriel existe deja</b><br>";  
-        }catch(Exception $e){
-            $msg = 'Erreur: '.$e->getMessage().'<br>';
+        }catch(Exception $e) {
+            $msg = 'Erreur : '.$e->getMessage();
         }finally{
-            return $msg; 
+            header("Location: ../../index.php?msg=$msg");
+            exit();
         }
     }
 ?>

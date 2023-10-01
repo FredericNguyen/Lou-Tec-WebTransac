@@ -11033,3 +11033,11 @@ p {
   gap: 2em;
   justify-content: center;
 }
+
+.styleToast {
+  background-color: crimson;
+  color: white;
+  position: absolute;
+  top: 5%;
+  left: 40%;
+}

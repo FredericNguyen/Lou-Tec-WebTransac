@@ -4,9 +4,7 @@
     function Ctr_connexion(){
         $courriel = $_POST['courrielco'];
         $mdp = $_POST['mdpco'];
-
-        $msg = Mdl_connexion($courriel,$mdp);
-        return msg;
+        Mdl_connexion($courriel,$mdp);
     }
 
     function Ctr_Deconnexion(){
@@ -18,9 +16,8 @@
 
     $action = $_POST['action'];
     switch($action){
-        case 'connexion' : echo Ctr_connexion();
+        case 'connexion' : Ctr_connexion(); //echo Ctr_connexion();
                        break;
         case 'deconnexion': Ctr_Deconnexion();
     }
 ?>
-<a href="../../index.php">Retour a la page d'accueil"</a>

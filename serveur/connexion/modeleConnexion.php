@@ -35,14 +35,17 @@
                         header('Location: ../admin/admin.php'); //on se dirige vers la page membre.
                         exit();
                     }
-                }else{
-                    $msg = '<b>SVP contactez administrateur</b>';
-                }
+                } else {// Membre inactif
+                    $msg = "Compte membre bloqué. SVP contactez administrateur !!!";
+                } 
+            } else {
+                $msg = "Courriel ou mot de passe incorrect. SVP vérifiez vos données de connexion !!!";
             }
-        }catch(Exception $e){
-            $msg = 'Erreur: '.$e->getMessage().'<br>';
+        } catch(Exception $e) {
+            $msg = 'Erreur : '.$e->getMessage();
         }finally{
-            return msg; 
+            header("Location: ../../index.php?msg=$msg");
+            exit();
         }
     }
 ?>
