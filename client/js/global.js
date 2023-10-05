@@ -1,3 +1,5 @@
+let listeProduits = [];
+
 let validerFormEnreg = () => {
     etat = true;
     let mdp = document.getElementById('mdp').value;
