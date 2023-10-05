@@ -3,4 +3,5 @@
     define("USAGER", "root"); 
     define("MDP", ""); //string vide dans le cas de windows, root dans le cas de mac system
     define("BD", "bdlocationequipements");
+    
 ?>

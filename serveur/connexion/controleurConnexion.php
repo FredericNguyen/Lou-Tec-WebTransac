@@ -16,8 +16,11 @@
 
     $action = $_POST['action'];
     switch($action){
-        case 'connexion' : Ctr_connexion(); //echo Ctr_connexion();
-                       break;
-        case 'deconnexion': Ctr_Deconnexion();
+        case 'connexion' : 
+            Ctr_connexion(); //echo Ctr_connexion();
+            break;
+        case 'deconnexion': 
+            Ctr_Deconnexion();
+            break;
     }
 ?>
