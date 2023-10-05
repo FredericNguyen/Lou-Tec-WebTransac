@@ -26,7 +26,7 @@
         <script src="client/utilitaires/jquery-3.6.3.min.js"></script>
         <script src="client/js/global.js"></script>
     </head>
-    <body onLoad='montrerToast("<?php echo addslashes($msg); ?>");'>
+    <body onLoad='montrerToast("<?php echo htmlentities($msg, ENT_QUOTES); ?>");'>
         <?php
             require_once('serveur/includes/header.php')
         ?>
