@@ -38,9 +38,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="C:\utilisateurs\ablak\xampp\htdocs\ProjetWebTransactionel\Lou-Tec-WebTransac\serveur\about.php">About</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="./serveur/about.php">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalAjouterMembre();">Devenir Membre</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalConnecterMembre()">Connexion</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: afficherFormModalConnecterMembre();">Connexion</a></li>
                     </ul>
                 </div>
             </div>

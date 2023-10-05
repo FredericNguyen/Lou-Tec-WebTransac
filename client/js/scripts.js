@@ -1,10 +1,31 @@
-/*!
-* Start Bootstrap - Business Casual v7.0.9 (https://startbootstrap.com/theme/business-casual)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-casual/blob/master/LICENSE)
-*/
-// Highlights current date on contact page
-// window.addEventListener('DOMContentLoaded', event => {
-//     const listHoursArray = document.body.querySelectorAll('.list-hours li');
-//     listHoursArray[new Date().getDay()].classList.add(('today'));
-// })
+let validerFormEnreg = () => {
+    let etat = true;
+    //const regExpPass = new RegExp('^[A-Za-z0-9_\$#\-]{6,10}$');
+    const mdp = document.getElementById('mdp').value;
+    const mdpc = document.getElementById('mdpc').value;
+    if(mdp !== mdpc){
+        etat = false;
+        document.getElementById('msgPass').innerHTML = "Mots de passe ne sont pas égaux !";
+        setInterval(() => {
+            document.getElementById('msgPass').innerHTML = "";
+        },3000);
+    } //else {//OK, égaux
+    //     if(!regExpPass.test(mdp)){
+    //          etat = false;
+    //         document.getElementById('msgPass').innerHTML = "Mot de passe non conforme";
+    //     }
+    
+    return etat;
+}
+
+let montrerToast = (msg) =>{
+	if(msg.length > 0){
+		let textToast = document.getElementById("textToast");
+		var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+		var toastList = toastElList.map(function (toastEl) {
+			return new bootstrap.Toast(toastEl)
+		})
+		textToast.innerHTML = msg;
+		toastList[0].show();
+	}
+}
