@@ -99,14 +99,12 @@
                         <div class="col-xl-9 col-lg-10 mx-auto">
                             <div class="bg-faded rounded p-5">
                                 <h2 class="section-heading mb-4">
-                                    <span class="section-heading-upper">Strong Coffee, Strong Roots</span>
-                                    <span class="section-heading-lower">About Our Cafe</span>
+                                    <span class="section-heading-upper">Strong Equipment, Strong Roots</span>
+                                    <span class="section-heading-lower">About Our Store</span>
                                 </h2>
-                                <p>Founded in 1987 by the Hernandez brothers, our establishment has been serving up rich coffee sourced from artisan farmers in various regions of South and Central America. We are dedicated to travelling the world, finding the best coffee, and bringing back to you here in our cafe.</p>
+                                <p>has a rich history that spans several decades, and our journey from humble beginnings to becoming a trusted name in the industry is a testament to our dedication to serving our community.</p>
                                 <p class="mb-0">
-                                    We guarantee that you will fall in
-                                    <em>lust</em>
-                                    with our decadent blends the moment you walk inside until you finish your last sip. Join us for your daily routine, an outing with friends, or simply just to enjoy some alone time.
+                                Today, REN-TEC stands as a symbol of reliability, integrity, and quality. We are proud of our journey and grateful for the support of our loyal customers, who have been an integral part of our success story. As we look to the future, we remain committed to our founding principles and our mission to provide top-notch equipments to meet the diverse needs of our community.
                                 </p>
                             </div>
                         </div>
