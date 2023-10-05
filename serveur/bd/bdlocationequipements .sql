@@ -52,9 +52,23 @@ INSERT INTO `membres` (`idm`, `nom`, `prenom`, `courriel`, `sexe`, `datenaissanc
 (12, 'Belanger', 'Jolia', 'joBel@gmail.com', 'F', '2002-05-04', NULL),
 (13, 'Maroun', 'Sami', 'samMaroun@hotmail.com', 'M', '1985-12-09', NULL);
 
+CREATE TABLE `connexion` (
+  `idm` int(11) NOT NULL,
+  `courriel` varchar(256) COLLATE utf8_unicode_ci NOT NULL,
+  `pass` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `role` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'M',
+  `statut` varchar(1) COLLATE utf8_unicode_ci DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `connexion`
+--
+ALTER TABLE `connexion`
+  ADD KEY `connexion_idm_FK` (`idm`);
 
 --
 -- Index pour la table `membres`
@@ -69,8 +83,11 @@ ALTER TABLE `membres`
 --
 -- AUTO_INCREMENT pour la table `membres`
 --
+
 ALTER TABLE `membres`
   MODIFY `idm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+ALTER TABLE `connexion`
+  ADD CONSTRAINT `connexion_idm_FK` FOREIGN KEY (`idm`) REFERENCES `membres` (`idm`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

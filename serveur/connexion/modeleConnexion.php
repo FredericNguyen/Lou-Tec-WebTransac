@@ -5,7 +5,7 @@
         $msg = "";
         try{
             //on test l'existance du membre dans la table connexion
-            $requete = "SELECT * FROM connexion WHERE courriel = ? AND password =?";
+            $requete = "SELECT * FROM connexion WHERE courriel = ? AND pass =?";
             $stmt = $connexion->prepare($requete);
             $stmt->bind_param("ss",$courriel,$mdp);
             $stmt->execute();
