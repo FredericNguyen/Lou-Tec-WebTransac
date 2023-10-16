@@ -6,13 +6,16 @@ class Produit {
     private $nom;
     private $categorie;
     private $description;
+    private $prix, $qt_inventaire;
     private $pochette;
 
-    function __construct(int $idP, string $nom, string $categorie, string $description, string $pochette) {
+    function __construct(int $idP, string $nom, string $categorie, string $description, int $prix, int $qt_inventaire, string $pochette) {
         $this->setIdP($idP);
         $this->setNom($nom);
         $this->setCategorie($categorie);
         $this->setDescription($description);
+        $this->setPrix($prix);
+        $this->setQt_Inventaire($qt_inventaire);
         $this->setPochette($pochette);
     }
 
@@ -48,6 +51,31 @@ class Produit {
     }
     function setPochette(string $pochette):void {
         $this->pochette = $pochette;
+    }
+    
+
+    public function getQt_inventaire()
+    {
+        return $this->qt_inventaire;
+    }
+    public function setQt_inventaire($qt_inventaire)
+    {
+        $this->qt_inventaire = $qt_inventaire;
+
+        return $this;
+    }
+
+
+    public function getPrix()
+    {
+        return $this->prix;
+    }
+
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
     }
 }
 ?>
