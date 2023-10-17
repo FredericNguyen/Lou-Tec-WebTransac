@@ -1,4 +1,3 @@
-
 let montrerFormEnreg = () => {
     let form = `
     <!-- Modal pour enregistrer produit -->
@@ -12,8 +11,8 @@ let montrerFormEnreg = () => {
                     <div class="modal-body">
                     <form id="formEnreg">
                         <div class="col-md-6">
-                            <label for="titre" class="form-label">Titre</label>
-                            <input type="text" class="form-control is-valid" id="titre" name="titre" required>
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control is-valid" id="nom" name="nom" required>
                         </div>
                         <div class="col-md-6">
                             <label for="duree" class="form-label">Durée</label>
@@ -46,21 +45,14 @@ let montrerFormEnreg = () => {
 
 
 let remplirCard = (unProduit)=> {
-    let titre = unProduit.getElementsByTagName('titre')[0].firstChild.nodeValue;
-    let res = unProduit.getElementsByTagName('res')[0].firstChild.nodeValue;
-    let duree = unProduit.getElementsByTagName('duree')[0].firstChild.nodeValue;
-    let rep =    ' <div class="col">';
-    rep +='<div class="card">';
-                 rep +=' <img src="serveur/pochettes/avatar.jpg" class="card-img-top tailleImg" alt="...">';
+    let rep = ' <div class="row">';
+    rep +='<div class="card card-perso">';
                  rep +=' <div class="card-body">';
-                 rep +=' <h5 class="card-title">'+titre+'</h5>';
-                 rep +=' <p class="card-text">Réalisateur : '+res+'</p>';
-                 rep +=' <p class="card-text">Durée : '+duree+'</p>';
-                 rep +=' <a href="#" class="btn btn-primary">Bande annonce</a>';
-                 rep +=' <a href="#" onClick="enleverProduit(this,unProduit.title);" class="btn btn-danger"><span style="font-size:18px; color:white;">-</span></a>';
-                 rep +=' <!--<button style="float:right;margin-right: 12px;" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">';
-                 rep +=' <span style="font-size:18px; color:white;">-</span>';
-                 rep +=' </button> -->';
+                 rep +=' <h5 class="card-title">'+'Code: '+unProduit.idP+' '+unProduit.nom+'</h5>';
+                 rep +=' <p class="card-text">Catégorie : '+unProduit.categorie+'</p>';
+                 rep +=' <p class="card-text">Prix : '+unProduit.prix+'$</p>';
+				 rep +=' <p class="card-text">Quantité Inventaire : '+unProduit.qt_inventaire+'$</p>';
+				 rep +=' <p class="card-text">Description : '+unProduit.description+'$</p>';
                  rep +=' </div>';
                  rep +=' </div>';
                  rep +=' </div>';
@@ -68,12 +60,10 @@ let remplirCard = (unProduit)=> {
         return rep;
 }
 
-let listerProduits = (xmlReponse) => {
-    let listeProduits = xmlReponse.getElementsByTagName('produit');
-  
+
+let listerProduits = (listeProduits) => {
     let contenu = `<div class="row row-cols-4">`;
     for (let unProduit of listeProduits){
-         
             contenu+=remplirCard(unProduit);
     } 
     contenu += `</div>`;
@@ -82,8 +72,21 @@ let listerProduits = (xmlReponse) => {
 
 let afficherMessage = (msg) => {
     document.getElementById('msg').innerHTML = msg;
+    //setTimeout(() => { $('#msg').html(""); }, 5000);
     setTimeout(() => {
         document.getElementById('msg').innerHTML = "";
+        document.getElementById('formEnreg').reset();
+
+    }, 5000);
+}
+
+let afficherMessageSupprimer = (msg) => {
+    document.getElementById('msg').innerHTML = msg;
+    //setTimeout(() => { $('#msg').html(""); }, 5000);
+    setTimeout(() => {
+        document.getElementById('msg').innerHTML = "";
+        document.getElementById('formEnlever').reset();
+
     }, 5000);
 }
 
@@ -119,14 +122,6 @@ const montrerMessage = (idElem, msg) => {
 	chargerProduitsJSON();
 }
 
-
-const montrerFormEnregProduit = () => {
-	document.getElementById('idForms').innerHTML = modalEnregProduits();
-	const modalEnregProduit = new bootstrap.Modal('#modalEnregProduit', {
-   });
-   modalEnregProduit.show();
-}
-
 const montrerFormModifierProduit = (leProduit) => {
 	document.getElementById('idForms').innerHTML = modalModifierProduits(leProduit);
 	mettreDonneesDansFormModifierProduit(leProduit);
@@ -160,8 +155,8 @@ const modalModifierProduits = () => {
 							<input type="text" class="form-control is-valid" id="mdnum" name="mdnum" readonly>
 						</div>
 					   <div class="col-md-6">
-						   <label for="titre" class="form-label">Titre</label>
-						   <input type="text" class="form-control is-valid" id="mdtitre" name="mdtitre" required>
+						   <label for="nom" class="form-label">Titre</label>
+						   <input type="text" class="form-control is-valid" id="mdnom" name="mdnom" required>
 					   </div>
 					   <div class="col-md-3">
 						   <label for="annee" class="form-label">Annee de diffusion</label>
@@ -207,65 +202,6 @@ const modalModifierProduits = () => {
    `;
 }
 
-const modalEnregProduits = () => {
-	return `
-	<!-- Modal enregistrer produit -->
-	<div class="modal fade" id="modalEnregProduit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="exampleModalLabel">Enregistrement d'un produit</h1>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<!-- Formulaire enregistrer produit -->
-					<form id="formEnregProduit" class="row">
-						<div class="col-md-6">
-							<label for="titre" class="form-label">Titre</label>
-							<input type="text" class="form-control is-valid" id="titre" name="titre" required value="">
-						</div>
-						<div class="col-md-3">
-							<label for="annee" class="form-label">Année de publication</label>
-							<input type="number" class="form-control is-valid" id="annee" name="annee" required value="">
-						</div>
-						<div class="col-md-3">
-							<label for="runtime" class="form-label">Durée (minutes)</label>
-							<input type="number" class="form-control is-valid" id="runtime" name="runtime" required value="">
-						</div>
-						<div class="col-md-6">
-							<label for="genres" class="form-label">Genres</label>
-							<input type="text" class="form-control is-valid" id="genres" name="genres" required value="">
-						</div>
-						<div class="col-md-6">
-							<label for="director" class="form-label">Réalisateur</label>
-							<input type="text" class="form-control is-valid" id="director" name="director" required value="">
-						</div>
-						<div class="col-md-12">
-							<label for="actors" class="form-label">Acteurs</label>
-							<input type="text" class="form-control is-valid" id="actors" name="actors" required value="">
-						</div>
-						<div class="col-md-12">
-							<label for="plot" class="form-label">Synopsis</label>
-							<input type="text" class="form-control is-valid" id="plot" name="plot" required value="">
-						</div>
-						<div class="col-md-12">
-                            <label for="posterUrl" class="form-label">Pochette</label>
-                            <input type="file" class="form-control is-valid" id="pochette" name="pochette[]" required>
-                        </div>
-						<div class="col-12 btn-enreg">
-							<br>
-							<button class="btn btn-primary" type="button" onClick="ajouterProduit();">Enregistrer</button>
-							<button class="btn btn-danger" type="reset">Vider</button>
-							<span id="msge"></span>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Fin modal enregistrer Produit -->
-	`;
-}
 
 const modalEnleverProduits = (numId) => {
 	return `<div class="modal fade" id = "modalEnleverProduit" tabindex="-1" role="dialog">
@@ -358,7 +294,7 @@ const listerAvecCards = () => {
   
 const mettreDonneesDansFormModifierProduit = (unProduit) => {
 	document.getElementById('mdnum').value = unProduit.id;
-	document.getElementById('mdtitre').value = unProduit.title;
+	document.getElementById('mdnom').value = unProduit.title;
 	document.getElementById('mddirector').value = unProduit.director;
 	document.getElementById('mdannee').value = unProduit.year;
 	document.getElementById('mdruntime').value = unProduit.runtime;

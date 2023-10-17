@@ -22,20 +22,35 @@ class DaoProduit {
 		return self::$modelProduit;
 	}
 	
+    static function chargerPhoto($nom_p){
+        $photo = "avatar_membre.png";
+        $dossierPhotos = "photos/";
+        $objPhotoRecue = $_FILES['photo'];
+        if( $objPhotoRecue['tmp_name'][0]!== ""){ // tester si une photo a été uplodée
+            $nouveauNom = sha1($nom_p.time()); // Générateur d'un string unique comme nom du fichier uplodé
+            // Nom original du fichier uplodé $objPhotoRecue -> name
+            // strrchr : cherche le point (.) dans le nom du fichier à partir de la droit
+            $extension = strrchr($objPhotoRecue['name'][0],".");  // Obtenir l'extension du fichier original
+            $photo = $nouveauNom.$extension;
+            @move_uploaded_file($objPhotoRecue['tmp_name'][0],$dossierPhotos.$photo);
+        }
+        return $photo;
+    }
+
 	function MdlF_Enregistrer(Produit $produit):string {
              
         $connexion =  Connexion::getConnexion();
         
-        $requette="INSERT INTO produits VALUES(?,?,?,?)";
+        $requette="INSERT INTO produits VALUES(0,?,?,?,?,?,NULL,?)";
         try{
-            $donnees = [$produit->getCode(),$produit->getDepart(),$produit->getDestination(),$produit->getTransporteur()];
+            $donnees = [$produit->getNom(),$produit->getCategorie(),$produit->getDescription(),$produit->getPrix(), $produit->getQt_inventaire(), $produit->getPochette()];
             $stmt = $connexion->prepare($requette);
             $stmt->execute($donnees);
             $this->reponse['OK'] = true;
-            $this->reponse['msg'] = "Produit bien enregistre";
+            $this->reponse['msg'] = "Produit bien enregistré";
         }catch (Exception $e){
             $this->reponse['OK'] = false;
-            $this->reponse['msg'] = "Probléme pour enregistrer le produit";
+            $this->reponse['msg'] = "Problème pour enregistrer le produit";
         }finally {
           unset($connexion);
           return json_encode($this->reponse);
@@ -88,11 +103,11 @@ class DaoProduit {
         }
     }
 
-    function MdlF_Enlever(Produit $produit):string {
+    function MdlF_Enlever(int $idP):string {
              
         $connexion =  Connexion::getConnexion();
-        $requette="DELETE FROM Produits WHERE code = (?)";
-        $donnees = [$produit->getCode()];
+        $requette="DELETE FROM produits WHERE idP = (?)";
+        $donnees = [$idP];
         try{
             $stmt = $connexion->prepare($requette);
             $stmt->execute($donnees);

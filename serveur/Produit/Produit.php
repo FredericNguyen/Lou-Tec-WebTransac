@@ -6,7 +6,7 @@ class Produit {
     private $nom;
     private $categorie;
     private $description;
-    private $prix, $qt_inventaire;
+    private $prix, $qt_inventaire, $dateAjout;
     private $pochette;
 
     function __construct(int $idP, string $nom, string $categorie, string $description, int $prix, int $qt_inventaire, string $pochette) {
@@ -17,6 +17,7 @@ class Produit {
         $this->setPrix($prix);
         $this->setQt_Inventaire($qt_inventaire);
         $this->setPochette($pochette);
+        $dateAjout = null;
     }
 
     function getIdP():int {
@@ -76,6 +77,11 @@ class Produit {
         $this->prix = $prix;
 
         return $this;
+    }
+
+    public function getDateAjout()
+    {
+        return $this->dateAjout;
     }
 }
 ?>

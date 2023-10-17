@@ -21,7 +21,7 @@
 	}
 
 	function CtrF_Enregistrer(){
-         $produit = new Produit($_POST['code'],$_POST['depart'], $_POST['destination'], $_POST['transporteur'],"Pochette");
+         $produit = new Produit(0, $_POST['nom'],$_POST['depart'], $_POST['destination'], $_POST['transporteur'],"Pochette");
          return DaoProduit::getDaoProduit()->MdlF_Enregistrer($produit); 
     }
 
@@ -30,8 +30,7 @@
     }
 
     function CtrF_Enlever(){
-        $produit = new Produit($_POST['code'],"", "", "","Pochette");
-        return DaoProduit::getDaoProduit()->MdlF_Enlever($produit); 
+        return DaoProduit::getDaoProduit()->MdlF_Enlever($_POST['idP']); 
    }
 
    function CtrF_getMtlTrans(){
