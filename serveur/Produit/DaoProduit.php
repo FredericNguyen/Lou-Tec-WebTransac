@@ -72,7 +72,7 @@ class DaoProduit {
             }
         }catch (Exception $e){ 
             $this->reponse['OK'] = false;
-            $this->reponse['msg'] = "Problème pour obtenir les données des produits";
+            $this->reponse['msg'] = "Problème pour obtenir les données des produits".$e;
             //$reponse['msg'] = $e->getMessage();
         }finally {
           unset($connexion);

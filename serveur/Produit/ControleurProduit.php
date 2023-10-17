@@ -36,7 +36,7 @@
    function CtrF_getMtlTrans(){
     return DaoProduit::getDaoProduit()->MdlF_getMtlTrans(); 
     }
-    function CtrF_Actions(){
+    function CtrP_Actions(){
         $action=$_POST['action'];
         switch($action){
             case "enregistrer" :

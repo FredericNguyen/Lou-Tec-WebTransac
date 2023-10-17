@@ -90,23 +90,6 @@ let afficherMessageSupprimer = (msg) => {
     }, 5000);
 }
 
-let montrerVue = (action, xmlReponse) => {
-
-    switch(action){
-        case "enregistrer"  :
-        case "modifier"     :
-        case "enlever"      :
-            afficherMessage(xmlReponse.getElementsByTagName('msg')[0].firstChild.nodeValue);
-        break;
-        case "lister"       :
-            if(xmlReponse.firstChild.nodeName == 'message'){
-                afficherMessage(xmlReponse.getElementsByTagName('msg')[0].firstChild.nodeValue);
-            } else {
-                listerProduits(xmlReponse);
-            }
-    }
-}
-
 const loadPage = () => {
 	localStorage.clear();
 	document.getElementsByClassName('container')[0].innerHTML = "";
@@ -227,8 +210,8 @@ const modalEnleverProduits = (numId) => {
 }
 
 const editerProduit = (numProduit) => {
-   let leProduit = listeProduits.movies.find(unProduit => {
-	   return unProduit.id == numProduit;
+   let leProduit = listeProduits.find(unProduit => {
+	   return unProduit.idP == numProduit;
    });
    montrerFormModifierProduit(leProduit);
 }
@@ -244,26 +227,26 @@ const formatProduitTexte = (texte) => {
 
 const creerCard = (unProduit) => {
 	const webLink = "https";
-	if (unProduit.posterUrl.substring(0, webLink.length) != webLink) {
-		unProduit.posterUrl = `serveur/pochettes/${unProduit.posterUrl}`;
+	if (unProduit.pochette.substring(0, webLink.length) != webLink) {
+		unProduit.pochette = `serveur/pochettes/${unProduit.pochette}`;
 	}
 	return `
 	<div class="card-group">
 		<div class="card mb-3" >
 			<div class="row no-gutters">
 				<div class="col-md-4">
-					<img class="card-img-top" src="${unProduit.posterUrl}" alt="Card image cap">
+					<img class="card-img-top" src="../../${unProduit.pochette}" alt="Card image cap">
 				</div>
 				<div class="col-md-8">
 					<div class="card-body">
+						<h5 class="card-title">${unProduit.idP} | ${unProduit.nom}</h5>
+						<div class="card-text">Catégorie: ${unProduit.categorie}</div>
+						<p class="card-text">Prix: ${unProduit.prix} $ | Inventaire: ${unProduit.qt_inventaire}</p>
+						<p class="card-text">${formatProduitTexte(unProduit.description)}</p>
 						<div class="div-icones">
-							<i class="fa fa-pencil-square fa-lg edit-perso margin-icones" aria-hidden="true" onClick='editerProduit(${unProduit.id});'></i>
-							<i class="fa fa-minus-square fa-lg delete-perso margin-icones" aria-hidden="true" onClick='montrerFormEnleverProduit(${unProduit.id});'></i>
+							<i class="fa fa-pencil-square fa-lg edit-perso margin-icones" aria-hidden="true" onClick='editerProduit(${unProduit.idP});'></i>
+							<i class="fa fa-minus-square fa-lg delete-perso margin-icones" aria-hidden="true" onClick='montrerFormEnleverProduit(${unProduit.idP});'></i>
 						</div>
-						<h5 class="card-title">${unProduit.id} | ${unProduit.title}</h5>
-						<div class="card-text">${unProduit.director} | ${unProduit.actors.toString()}</div>
-						<p class="card-text">${unProduit.year} | ${unProduit.runtime} mins | ${unProduit.genres.toString()}</p>
-						<p class="card-text">${formatProduitTexte(unProduit.plot)}</p>
 					</div>
 				</div>
 			</div>
@@ -273,27 +256,52 @@ const creerCard = (unProduit) => {
 }
 
 const construireNav = () => {
+	let categoriesDOM = ``;
+	if (localStorage.getItem("selectedGenre") === null) {
+		categoriesDOM+=`<option selected disabled value="Tout">Catégories</option>`
+	}
+	else {
+		categoriesDOM += `<option selected disabled value="Tout">Catégories</option>`
+	}
+	//Copie profonde
+	let categories = JSON.parse(JSON.stringify(listeFilms.genres));
+	categories.unshift({"nom":"Tout"})
+	categories.forEach((unCategorie) => {
+		if (localStorage.getItem("selectedGenre") == unCategorie.nom) {
+			categoriesDOM += `<option selected value="${unCategorie.nom}">${unCategorie.nom}</option>`;
+		}
+		else {
+			categoriesDOM += `<option value="${unCategorie.nom}">${unCategorie.nom}</option>`;
+		}
+	});
 	let navigation = `
 		<nav class="navbar navbar-light bg-light justify-content-between" >
 			<i class="fa fa-plus-square fa-2x add-perso margin-icones" aria-hidden="true" onClick="montrerFormEnregProduit();"></i><br/>
+			<form id="chercher" class="form-inline">
+				<input class="form-control mr-sm-2" id="chr" name="chr" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="createSearchCookie(); chercher();">Search</button>
+			</form>
+			<select class="custom-select" id="selectedGenre" onChange="createGenreCookie(); chargerProduitsFETCHCateg();">
+				${categoriesDOM}
+			</select>
 		</nav>
 	`;
 	return navigation;
 }
 
 
-const listerAvecCards = () => {
-	let resultat = `<div class="row">`;
-	for(let i=0; i<(listeProduits.length); i++){
-        resultat += creerCard(listerProduits[i]);
+const listerAvecCards = (listeProduits) => {
+	let resultat =`<div class="row">`;
+	for(let i=0; i<(listeProduits.listeProduits.length); i++){
+        resultat += creerCard(listeProduits.listeProduits[i]);
 	}
 	resultat += "</div>";
-	document.getElementsByClassName('container')[0].innerHTML = construireNav(pageNb, currentViewProduits.length);
+	document.getElementsByClassName('container')[0].innerHTML = construireNav();
 	document.getElementsByClassName('container')[0].innerHTML += resultat;
 }
   
 const mettreDonneesDansFormModifierProduit = (unProduit) => {
-	document.getElementById('mdnum').value = unProduit.id;
+	document.getElementById('mdnum').value = unProduit.idP;
 	document.getElementById('mdnom').value = unProduit.title;
 	document.getElementById('mddirector').value = unProduit.director;
 	document.getElementById('mdannee').value = unProduit.year;
@@ -303,3 +311,4 @@ const mettreDonneesDansFormModifierProduit = (unProduit) => {
 	document.getElementById('mdplot').value = unProduit.plot;
 	document.getElementById('posterUrl').value = unProduit.posterUrl;
   };
+

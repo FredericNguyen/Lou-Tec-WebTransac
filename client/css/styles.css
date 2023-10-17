@@ -11041,3 +11041,11 @@ p {
   top: 5%;
   left: 40%;
 }
+
+.fa-pencil-square {
+  color: lightseagreen;
+}
+
+.fa-minus-square {
+  color: red;
+}

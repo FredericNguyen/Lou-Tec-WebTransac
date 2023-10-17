@@ -6,7 +6,6 @@
         exit();
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -38,7 +37,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript: montrerFormEnreg();">Gérer Produits</a>
+                <a class="nav-link" href="javascript: chargerProduitsFETCH();">Gérer Produits</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>
