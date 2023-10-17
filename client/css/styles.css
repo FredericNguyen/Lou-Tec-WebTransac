@@ -11049,3 +11049,21 @@ p {
 .fa-minus-square {
   color: red;
 }
+
+.div-icones {
+    float: right;
+}
+
+.navbar2 {
+  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.add-perso{
+  color: lightgreen;
+}
+
+#chercher {
+  display: flex;
+}

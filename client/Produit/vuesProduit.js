@@ -1,4 +1,4 @@
-let montrerFormEnreg = () => {
+let montrerFormEnregProduit = () => {
     let form = `
     <!-- Modal pour enregistrer produit -->
         <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -15,17 +15,25 @@ let montrerFormEnreg = () => {
                             <input type="text" class="form-control is-valid" id="nom" name="nom" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="duree" class="form-label">Durée</label>
-                            <input type="numeric" class="form-control is-valid" id="duree" name="duree" required>
+                            <label for="categorie" class="form-label">Catégorie</label>
+                            <input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
                         </div>
                         <div class="col-md-12">
-                            <label for="res" class="form-label">Réalisateur</label>
-                            <input type="text" class="form-control is-valid" id="res" name="res" required>
+                            <label for="description" class="form-label">description</label>
+                            <input type="text" class="form-control is-valid" id="description" name="description" required>
                         </div>
                         <!-- <div class="col-md-6">
                             <label for="pochette" class="form-label">Pochette</label>
                             <input type="file"  class="form-control is-valid" id="pochette" name="pochette">
                         </div> -->
+						<div class="col-md-6">
+                            <label for="prix" class="form-label">Prix</label>
+                            <input type="numeric" class="form-control is-valid" id="prix" name="prix" required>
+                        </div>
+						<div class="col-md-6">
+                            <label for="qt_inventaire" class="form-label">Inventaire</label>
+                            <input type="numeric" class="form-control is-valid" id="qt_inventaire" name="qt_inventaire" required>
+                        </div>
                         <br/>
                         <div class="col-12">
                             <button class="btn btn-primary" type="button" onClick="requeteEnregistrer();">Enregistrer</button>
@@ -40,7 +48,8 @@ let montrerFormEnreg = () => {
         <!-- Fin du modal pour enregistrer produit -->
     `;
     document.getElementById('contenu').innerHTML = form;
-    $('#enregModal').modal('show');
+	let myModal = new bootstrap.Modal(document.getElementById('enregModal'), {});
+	myModal.show();
 }
 
 
@@ -150,7 +159,7 @@ const modalModifierProduits = () => {
 						   <input type="number" class="form-control is-valid" id="mdruntime" name="mdruntime" required>
 					   </div>
 					   <div class="col-md-12">
-						   <label for="genres" class="form-label">Genres</label>
+						   <label for="genres" class="form-label">Categs</label>
 						   <input type="text" class="form-control is-valid" id="mdgenres" name="mdgenres" required>
 					   </div>
 					   <div class="col-md-6">
@@ -257,17 +266,17 @@ const creerCard = (unProduit) => {
 
 const construireNav = () => {
 	let categoriesDOM = ``;
-	if (localStorage.getItem("selectedGenre") === null) {
+	if (localStorage.getItem("selectedCateg") === null) {
 		categoriesDOM+=`<option selected disabled value="Tout">Catégories</option>`
 	}
 	else {
 		categoriesDOM += `<option selected disabled value="Tout">Catégories</option>`
 	}
 	//Copie profonde
-	let categories = JSON.parse(JSON.stringify(listeFilms.genres));
+	let categories = JSON.parse(JSON.stringify(listeCategories));
 	categories.unshift({"nom":"Tout"})
 	categories.forEach((unCategorie) => {
-		if (localStorage.getItem("selectedGenre") == unCategorie.nom) {
+		if (localStorage.getItem("selectedCateg") == unCategorie.nom) {
 			categoriesDOM += `<option selected value="${unCategorie.nom}">${unCategorie.nom}</option>`;
 		}
 		else {
@@ -275,20 +284,30 @@ const construireNav = () => {
 		}
 	});
 	let navigation = `
-		<nav class="navbar navbar-light bg-light justify-content-between" >
-			<i class="fa fa-plus-square fa-2x add-perso margin-icones" aria-hidden="true" onClick="montrerFormEnregProduit();"></i><br/>
+		<nav class="navbar navbar2 navbar-light bg-light justify-content-between" >
 			<form id="chercher" class="form-inline">
 				<input class="form-control mr-sm-2" id="chr" name="chr" type="search" placeholder="Search" aria-label="Search">
 				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="createSearchCookie(); chercher();">Search</button>
 			</form>
-			<select class="custom-select" id="selectedGenre" onChange="createGenreCookie(); chargerProduitsFETCHCateg();">
+			<select class="custom-select" id="selectedCateg" onChange="createCategCookie(); chargerProduitsFETCHCateg();">
 				${categoriesDOM}
 			</select>
+			<i class="fa fa-plus-square fa-2x add-perso margin-icones" aria-hidden="true" onClick="montrerFormEnregProduit();"></i><br/>
+
 		</nav>
 	`;
-	return navigation;
+	const placeholder = document.createElement("div");
+	placeholder.innerHTML = navigation;
+	const node = placeholder.firstElementChild;
+	const body = document.body;
+	body.insertBefore(node, body.children[1]);
 }
 
+const createCategCookie = () => {
+	this.selected = "selected";
+	const genre = document.getElementById("selectedCateg").value;
+	localStorage.setItem("selectedCateg", genre);
+}
 
 const listerAvecCards = (listeProduits) => {
 	let resultat =`<div class="row">`;
@@ -296,7 +315,8 @@ const listerAvecCards = (listeProduits) => {
         resultat += creerCard(listeProduits.listeProduits[i]);
 	}
 	resultat += "</div>";
-	document.getElementsByClassName('container')[0].innerHTML = construireNav();
+	// document.getElementsByClassName('container')[0].innerHTML = construireNav();
+	construireNav();
 	document.getElementsByClassName('container')[0].innerHTML += resultat;
 }
   

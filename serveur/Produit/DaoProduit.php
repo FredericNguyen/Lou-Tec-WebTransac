@@ -41,7 +41,7 @@ class DaoProduit {
              
         $connexion =  Connexion::getConnexion();
         
-        $requette="INSERT INTO produits VALUES(0,?,?,?,?,?,NULL,?)";
+        $requette="INSERT INTO produits VALUES(0,?,?,?,?,?,current_timestamp(),?)";
         try{
             $donnees = [$produit->getNom(),$produit->getCategorie(),$produit->getDescription(),$produit->getPrix(), $produit->getQt_inventaire(), $produit->getPochette()];
             $stmt = $connexion->prepare($requette);
@@ -80,10 +80,10 @@ class DaoProduit {
         }
     }
 
-    function MdlF_getMtlTrans():string {
+    function MdlF_listerParCateg(string $categorie):string {
 
         $connexion = Connexion::getConnexion();
-        $requette="SELECT transporteur FROM produits WHERE depart = 'Montréal'";
+        $requette="SELECT * FROM produits WHERE categorie = $categorie";
         try{
             $stmt = $connexion->prepare($requette);
             $stmt->execute();

@@ -77,8 +77,9 @@ const chargerProduitsFETCH = async () => {
 	listerAvecCards(reponseJSON);
 }
 
-const chargerProduitsFETCHCateg = async (categorie) => {
+const chargerProduitsFETCHCateg = async () => {
 	const url = "../../routes.php";
+	let categorie = document.getElementById("selectedCateg").value;
 	let formData = new FormData();
 	formData.append('action','listerParCateg');
 	formData.append('type_req','produit');
@@ -93,3 +94,17 @@ const chargerProduitsFETCHCateg = async (categorie) => {
 	listerAvecCards(reponseJSON);
 }
 
+const chargerCategoriesFETCH = async () => {
+	const url = "../../routes.php";
+	let formData = new FormData();
+	formData.append('action','categories');
+	formData.append('type_req','produit');
+	const optionsFetch = {
+		method: "POST",
+		body: formData
+	}
+	const reponse = await fetch( url, optionsFetch);
+	reponseJSON = await reponse.json();
+	listeProduits = reponseJSON.listeProduits;
+	listerAvecCards(reponseJSON);
+}

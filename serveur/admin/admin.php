@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="../../client/utilitaires/bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../client/utilitaires/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../../client/css/styles.css">
+    <script src="../../client/utilitaires/bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js"></script>
     <script src="../../client/utilitaires/jquery-3.6.3.min.js"></script>
     <script src="../../client/js/global.js"></script>
     <script src="../../client/Produit/requetesProduit.js"></script>

@@ -21,7 +21,7 @@
 	}
 
 	function CtrF_Enregistrer(){
-         $produit = new Produit(0, $_POST['nom'],$_POST['depart'], $_POST['destination'], $_POST['transporteur'],"Pochette");
+         $produit = new Produit(0, $_POST['nom'],$_POST['categorie'], $_POST['description'], $_POST['prix'], $_POST['qt_inventaire'],"Pochette");
          return DaoProduit::getDaoProduit()->MdlF_Enregistrer($produit); 
     }
 
@@ -33,8 +33,8 @@
         return DaoProduit::getDaoProduit()->MdlF_Enlever($_POST['idP']); 
    }
 
-   function CtrF_getMtlTrans(){
-    return DaoProduit::getDaoProduit()->MdlF_getMtlTrans(); 
+   function CtrF_listerParCateg(){
+    return DaoProduit::getDaoProduit()->MdlF_listerParCateg($_POST['categorie']); 
     }
     function CtrP_Actions(){
         $action=$_POST['action'];
@@ -45,8 +45,10 @@
                 return  $this->CtrF_Enlever();
             case "lister" :
                 return $this->CtrF_getAll();
-            case "listerMtlTrans":
-                return $this->CtrF_getMtlTrans();
+            case "listerParCateg":
+                return $this->CtrF_listerParCateg();
+            case "categories":
+                return $this->CtrF_listerParCateg();
         }
         // Retour de la réponse au client
        
