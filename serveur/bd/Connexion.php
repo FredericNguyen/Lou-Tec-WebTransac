@@ -1,7 +1,7 @@
 <?php
 declare (strict_types=1);
 
-require_once(__DIR__."/../env/env.inc.php");
+require_once(__DIR__."/env.inc.php");
 
 // Patron de conception Singleton
 class Connexion{
@@ -21,16 +21,16 @@ class Connexion{
 	
 	// Créer la connexion
 	private static function connecter():void {
-		global $SERVEUR, $BD, $USAGER, $PASS; // Définies dans le fichier "env.inc.php"
+		global $SERVEUR, $BD, $USAGER, $MDP; // Définies dans le fichier "env.inc.php"
 		try {
 			$dns = "mysql:host=$SERVEUR;dbname=$BD";
 			$options = array(
 				PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 			);
-			self::$connexion = new PDO( $dns, $USAGER, $PASS, $options );
+			self::$connexion = new PDO( $dns, $USAGER, $MDP, $options );
 			} catch ( Exception $e ) {
 				echo $e->getMessage();
-				echo "Probleme de connexion au serveur de bd";
+				echo "Probleme de connexion au serveur de bddd";
 				exit();
 			}
 	}

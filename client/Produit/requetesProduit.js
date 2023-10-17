@@ -17,6 +17,7 @@ let chargerProduitsAJAX = () => {
 let requeteEnregistrer = () => {
 	let formProduit = new FormData(document.getElementById('formEnreg'));
 	formProduit.append('action','enregistrer');
+	formProduit.append('action','enregistrer');
 	$.ajax({
 		type : 'POST',
 		url : 'routes.php',
@@ -62,14 +63,33 @@ const supprimerAvecFetch = async () => {
 }
 
 const chargerProduitsFETCH = async () => {
-	const url = "routes.php";
+	const url = "../../routes.php";
 	let formData = new FormData();
 	formData.append('action','lister');
+	formData.append('type_req','produit');
 	const optionsFetch = {
 		method: "POST",
 		body: formData
 	}
 	const reponse = await fetch( url, optionsFetch);
 	reponseJSON = await reponse.json();
-	montrerVue("lister", reponseJSON);
+	listeProduits = reponseJSON.listeProduits;
+	listerAvecCards(reponseJSON);
 }
+
+const chargerProduitsFETCHCateg = async (categorie) => {
+	const url = "../../routes.php";
+	let formData = new FormData();
+	formData.append('action','listerParCateg');
+	formData.append('type_req','produit');
+	formData.append('categorie',categorie);
+	const optionsFetch = {
+		method: "POST",
+		body: formData
+	}
+	const reponse = await fetch( url, optionsFetch);
+	reponseJSON = await reponse.json();
+	listeProduits = reponseJSON.listeProduits;
+	listerAvecCards(reponseJSON);
+}
+
