@@ -305,14 +305,11 @@ const listerAvecCards = (listeProduits) => {
 }
   
 const mettreDonneesDansFormModifierProduit = (unProduit) => {
-	document.getElementById('mdnum').value = unProduit.idP;
-	document.getElementById('mdnom').value = unProduit.title;
-	document.getElementById('mddirector').value = unProduit.director;
-	document.getElementById('mdannee').value = unProduit.year;
-	document.getElementById('mdruntime').value = unProduit.runtime;
-	document.getElementById('mdgenres').value = unProduit.genres;
-	document.getElementById('mdactors').value = unProduit.actors;
-	document.getElementById('mdplot').value = unProduit.plot;
-	document.getElementById('posterUrl').value = unProduit.posterUrl;
+	document.getElementById('idP').value = unProduit.idP;
+	document.getElementById('nom').value = unProduit.nom;
+	document.getElementById('categorie').value = unProduit.categorie;
+	document.getElementById('description').value = unProduit.description;
+	document.getElementById('prix').value = unProduit.prix;
+	document.getElementById('qt_inventaire').value = unProduit.qt_inventaire;
   };
 
