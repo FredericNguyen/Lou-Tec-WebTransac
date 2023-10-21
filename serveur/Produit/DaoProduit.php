@@ -70,7 +70,7 @@ class DaoProduit {
             $stmt = $connexion->prepare($requette);
             $stmt->execute($donnees);
             $this->reponse['OK'] = true;
-            $this->reponse['msg'] = "Produit bien enregistré";
+            $this->reponse['msg'] = "Produit bien modifié";
         }catch (Exception $e){
             $this->reponse['OK'] = false;
             $this->reponse['msg'] = "Problème pour modifier le produit";
@@ -178,7 +178,7 @@ class DaoProduit {
     function MdlF_Enlever(int $idP):string {
              
         $connexion =  Connexion::getConnexion();
-        $requette="DELETE FROM produits WHERE idP = (?)";
+        $requette="DELETE FROM produits WHERE idP = ?";
         $donnees = [$idP];
         try{
             $stmt = $connexion->prepare($requette);

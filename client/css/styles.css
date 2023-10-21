@@ -11089,3 +11089,7 @@ p {
 #form_chercher {
   display: flex;
 }
+
+#msg {
+  color: red;
+}

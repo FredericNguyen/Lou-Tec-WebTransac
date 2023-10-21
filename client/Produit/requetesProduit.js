@@ -11,6 +11,7 @@ const enregistrerProduit = async () => {
 	}
 	const reponse = await fetch("../../routes.php", optionsFetch);
 	reponseJSON = await reponse.json();
+	afficherMessage(reponseJSON.msg)
 }
 
 const modifierProduitFETCH = async () => {
@@ -23,18 +24,21 @@ const modifierProduitFETCH = async () => {
 	}
 	const reponse = await fetch("../../routes.php", optionsFetch);
 	reponseJSON = await reponse.json();
+	afficherMessage(reponseJSON.msg)
 }
 
-const supprimerAvecFetch = async () => {
-	let formProduit = new FormData(document.getElementById('formEnlever'));
+const supprimerProduitFETCH = async (numId) => {
+	let formProduit = new FormData();
 	formProduit.append('action','supprimer');
+	formProduit.append('type_req','produit');
+	formProduit.append('idP',numId);
 	const optionsFetch = {
 		method: "POST",
 		body: formProduit
 	}
 	const reponse = await fetch("../../routes.php", optionsFetch);
 	reponseJSON = await reponse.json();
-	montrerVue("supprimer",reponseJSON);
+	afficherMessageSupprimer(reponseJSON.msg);
 }
 
 const chargerProduitsFETCH = async () => {

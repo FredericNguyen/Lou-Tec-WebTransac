@@ -38,6 +38,7 @@ let montrerFormEnregProduit = () => {
                         <div class="col-12">
                             <button class="btn btn-primary" type="button" onClick="enregistrerProduit();">Enregistrer</button>
                         </div>
+						<span id="msg"></span>
                     </form>
                     </div>
                     <div class="modal-footer">
@@ -115,7 +116,7 @@ const montrerMessage = (idElem, msg) => {
 }
 
 const montrerFormEnleverProduit = (leProduit) => {
-	document.getElementById('idForms').innerHTML = modalEnleverProduits(leProduit);
+	document.getElementById('contenu').innerHTML = modalEnleverProduits(leProduit);
 	const modalEnleverProduit = new bootstrap.Modal('#modalEnleverProduit', {
    });
    modalEnleverProduit.show();
@@ -165,6 +166,7 @@ const montrerFormModifierProduit = (leProduit) => {
 					   <div class="col-12">
 						   <button class="btn btn-primary" type="button" onClick="modifierProduitFETCH();">Modifier</button>
 					   </div>
+					   <span id="msg"></span>
 				   </form>
 				   </div>
 				   <div class="modal-footer">
@@ -195,9 +197,9 @@ const modalEnleverProduits = (numId) => {
 		  <p>Voulez-vous vraiment supprimer ce produit?</p>
 		</div>
 		<div class="modal-footer">
-		  <button type="button" class="btn btn-primary" onClick='supprimerProduit(${numId});'>Confirmer</button>
+		  <button type="button" class="btn btn-primary" onClick='supprimerProduitFETCH(${numId});'>Confirmer</button>
 		  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-		  <span id="msge"></span>
+		  <span id="msg"></span>
 		</div>
 	  </div>
 	</div>
