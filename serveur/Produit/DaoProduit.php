@@ -62,7 +62,7 @@ class DaoProduit {
         $connexion =  Connexion::getConnexion();
         $photo = $this->chargerPhotoProduit($produit->getNom());
         if ($photo = "avatar_membre.png") {
-            
+            $photo = $_POST['anciennePochette'];
         }
         $requette="UPDATE produits SET nom = ?, categorie = ?, description = ?, prix = ?, qt_inventaire = ?, pochette = ? WHERE idP = ?";
         try{

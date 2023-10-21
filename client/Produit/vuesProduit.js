@@ -271,11 +271,11 @@ const construireNav = () => {
 	});
 	let navigation = `
 		<nav class="navbar navbar2 navbar-light bg-light justify-content-between" >
-			<form id="chercher" class="form-inline">
-				<input class="form-control mr-sm-2" id="chr" name="chr" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="chercher();">Search</button>
+			<form id="form_chercher" class="form-inline">
+				<input class="form-control mr-sm-2" id="chercher" name="chercher" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="chercherFETCH();">Search</button>
 			</form>
-			<select class="custom-select" id="selectedCateg" onChange="createCategCookie(); chargerProduitsFETCHCateg();">
+			<select class="custom-select" id="selectedCateg" onChange=" chargerProduitsFETCHCateg();">
 				${categoriesDOM}
 			</select>
 			<i class="fa fa-plus-square fa-2x add-perso margin-icones" aria-hidden="true" onClick="montrerFormEnregProduit();"></i><br/>
@@ -315,6 +315,6 @@ const mettreDonneesDansFormModifierProduit = (unProduit) => {
 	document.getElementById('description').value = unProduit.description;
 	document.getElementById('prix').value = unProduit.prix;
 	document.getElementById('qt_inventaire').value = unProduit.qt_inventaire;
-	document.getElementById('anciennePochette').value = unProduit.pochette;
+	document.getElementById('anciennePochette').value = unProduit.pochette.replace('serveur/Produit/photos/','');;
   };
 
