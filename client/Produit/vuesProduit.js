@@ -157,9 +157,13 @@ const montrerFormModifierProduit = (leProduit) => {
 						   <label for="pochette" class="form-label">Pochette Produit</label>
 						   <input type="file" class="form-control is-valid" id="pochette" name="pochette" required>
 					   </div>
+					   <div class="col-md-6">
+						   <input type="hidden" class="form-control is-valid" id="idP" name="idP" required>
+						   <input type="hidden" class="form-control is-valid" id="anciennePochette" name="anciennePochette" required>
+					   </div>
 					   <br/>
 					   <div class="col-12">
-						   <button class="btn btn-primary" type="button" onClick="enregistrerProduit();">Enregistrer</button>
+						   <button class="btn btn-primary" type="button" onClick="modifierProduitFETCH();">Modifier</button>
 					   </div>
 				   </form>
 				   </div>
@@ -269,7 +273,7 @@ const construireNav = () => {
 		<nav class="navbar navbar2 navbar-light bg-light justify-content-between" >
 			<form id="chercher" class="form-inline">
 				<input class="form-control mr-sm-2" id="chr" name="chr" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="createSearchCookie(); chercher();">Search</button>
+				<button class="btn btn-outline-success my-2 my-sm-0" type="button" onClick="chercher();">Search</button>
 			</form>
 			<select class="custom-select" id="selectedCateg" onChange="createCategCookie(); chargerProduitsFETCHCateg();">
 				${categoriesDOM}
@@ -311,5 +315,6 @@ const mettreDonneesDansFormModifierProduit = (unProduit) => {
 	document.getElementById('description').value = unProduit.description;
 	document.getElementById('prix').value = unProduit.prix;
 	document.getElementById('qt_inventaire').value = unProduit.qt_inventaire;
+	document.getElementById('anciennePochette').value = unProduit.pochette;
   };
 

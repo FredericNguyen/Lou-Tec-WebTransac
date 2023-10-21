@@ -13,7 +13,7 @@ const enregistrerProduit = async () => {
 	reponseJSON = await reponse.json();
 }
 
-const modifierProduit = async () => {
+const modifierProduitFETCH = async () => {
 	let formProduit = new FormData(document.getElementById('formEnreg'));
 	formProduit.append('action','modifier');
 	formProduit.append('type_req','produit');
@@ -80,6 +80,5 @@ const chargerCategoriesFETCH = async () => {
 	}
 	const reponse = await fetch( url, optionsFetch);
 	reponseJSON = await reponse.json();
-	listeProduits = reponseJSON.listeProduits;
-	listerAvecCards(reponseJSON);
+	listeCategories = reponseJSON.listeCategories;
 }
