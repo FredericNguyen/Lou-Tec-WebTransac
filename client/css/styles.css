@@ -11085,3 +11085,7 @@ p {
   padding: 12px;
   background-color: rgb(245, 245, 245);
 }
+
+#form_chercher {
+  display: flex;
+}
