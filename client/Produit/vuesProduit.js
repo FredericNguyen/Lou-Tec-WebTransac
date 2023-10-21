@@ -237,12 +237,12 @@ const formatProduitTexte = (texte) => {
 const creerCard = (unProduit) => {
 	const webLink = "https";
 	if (unProduit.pochette.substring(0, webLink.length) != webLink) {
-		unProduit.pochette = `serveur/pochettes/${unProduit.pochette}`;
+		unProduit.pochette = `serveur/Produit/photos/${unProduit.pochette}`;
 	}
 	return `
 	<div class="card-group">
 		<div class="card mb-3" >
-			<div class="row no-gutters">
+			<div class="no-gutters card-container">
 				<div class="col-md-4">
 					<img class="card-img-top" src="../../${unProduit.pochette}" alt="Card image cap">
 				</div>

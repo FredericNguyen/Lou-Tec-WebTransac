@@ -24,7 +24,7 @@ class DaoProduit {
 	
     static function chargerPhoto($nom_p){
         $photo = "avatar_membre.png";
-        $dossierPhotos = "photos/";
+        $dossierPhotos = __DIR__."/photos/";
         $objPhotoRecue = $_FILES['photo'];
         if( $objPhotoRecue['tmp_name'][0]!== ""){ // tester si une photo a été uplodée
             $nouveauNom = sha1($nom_p.time()); // Générateur d'un string unique comme nom du fichier uplodé
@@ -69,6 +69,29 @@ class DaoProduit {
             $this->reponse['listeProduits'] = array();
             while($ligne = $stmt->fetch(PDO::FETCH_OBJ)){
                 $this->reponse['listeProduits'][] = $ligne;
+            }
+        }catch (Exception $e){ 
+            $this->reponse['OK'] = false;
+            $this->reponse['msg'] = "Problème pour obtenir les données des produits".$e;
+            //$reponse['msg'] = $e->getMessage();
+        }finally {
+          unset($connexion);
+          return json_encode($this->reponse);
+        }
+    }
+
+    function MdlF_getCateg():string {
+
+        $connexion = Connexion::getConnexion();
+        $requette="SELECT nom FROM categories";
+        try{
+            $stmt = $connexion->prepare($requette);
+            $stmt->execute();
+            $this->reponse['OK'] = true;
+            $this->reponse['msg'] = "";
+            $this->reponse['listeCategories'] = array();
+            while($ligne = $stmt->fetch(PDO::FETCH_OBJ)){
+                $this->reponse['listeCategories'][] = $ligne;
             }
         }catch (Exception $e){ 
             $this->reponse['OK'] = false;

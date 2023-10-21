@@ -95,7 +95,8 @@ const chargerProduitsFETCHCateg = async () => {
 }
 
 const chargerCategoriesFETCH = async () => {
-	const url = "../../routes.php";
+	if (listeCategories.length == 0) {
+		const url = "../../routes.php";
 	let formData = new FormData();
 	formData.append('action','categories');
 	formData.append('type_req','produit');
@@ -105,6 +106,6 @@ const chargerCategoriesFETCH = async () => {
 	}
 	const reponse = await fetch( url, optionsFetch);
 	reponseJSON = await reponse.json();
-	listeProduits = reponseJSON.listeProduits;
-	listerAvecCards(reponseJSON);
+	listeCategories = reponseJSON.listeCategories;
+	}
 }

@@ -38,7 +38,7 @@
                 <a class="nav-link active" aria-current="page" href="#">Accueil</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript: chargerProduitsFETCH();">Gérer Produits</a>
+                <a class="nav-link" href="javascript: chargerCategoriesFETCH(); chargerProduitsFETCH();">Gérer Produits</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>

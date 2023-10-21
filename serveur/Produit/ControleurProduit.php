@@ -36,6 +36,10 @@
    function CtrF_listerParCateg(){
     return DaoProduit::getDaoProduit()->MdlF_listerParCateg($_POST['categorie']); 
     }
+
+    function CtrF_getCateg(){
+        return DaoProduit::getDaoProduit()->MdlF_getCateg(); 
+        }
     function CtrP_Actions(){
         $action=$_POST['action'];
         switch($action){
@@ -48,7 +52,7 @@
             case "listerParCateg":
                 return $this->CtrF_listerParCateg();
             case "categories":
-                return $this->CtrF_listerParCateg();
+                return $this->CtrF_getCateg();
         }
         // Retour de la réponse au client
        

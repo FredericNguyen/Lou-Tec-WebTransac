@@ -11067,3 +11067,21 @@ p {
 #chercher {
   display: flex;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.card-img-top {
+  margin-left: 40px;
+  width: 150px;
+  height: 150px;
+}
+
+.card.mb-3 {
+  height: 255px;
+  padding: 12px;
+  background-color: rgb(245, 245, 245);
+}
