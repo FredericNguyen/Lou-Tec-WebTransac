@@ -22,10 +22,6 @@ let montrerFormEnregProduit = () => {
                             <label for="description" class="form-label">description</label>
                             <input type="text" class="form-control is-valid" id="description" name="description" required>
                         </div>
-                        <!-- <div class="col-md-6">
-                            <label for="pochette" class="form-label">Pochette</label>
-                            <input type="file"  class="form-control is-valid" id="pochette" name="pochette">
-                        </div> -->
 						<div class="col-md-6">
                             <label for="prix" class="form-label">Prix</label>
                             <input type="numeric" class="form-control is-valid" id="prix" name="prix" required>
@@ -34,9 +30,13 @@ let montrerFormEnregProduit = () => {
                             <label for="qt_inventaire" class="form-label">Inventaire</label>
                             <input type="numeric" class="form-control is-valid" id="qt_inventaire" name="qt_inventaire" required>
                         </div>
+						<div class="col-md-12">
+							<label for="pochette" class="form-label">Pochette Produit</label>
+							<input type="file" class="form-control is-valid" id="pochette" name="pochette" required>
+						</div>
                         <br/>
                         <div class="col-12">
-                            <button class="btn btn-primary" type="button" onClick="requeteEnregistrer();">Enregistrer</button>
+                            <button class="btn btn-primary" type="button" onClick="enregistrerProduit();">Enregistrer</button>
                         </div>
                     </form>
                     </div>
@@ -114,14 +114,6 @@ const montrerMessage = (idElem, msg) => {
 	chargerProduitsJSON();
 }
 
-const montrerFormModifierProduit = (leProduit) => {
-	document.getElementById('idForms').innerHTML = modalModifierProduits(leProduit);
-	mettreDonneesDansFormModifierProduit(leProduit);
-	const modalModifierProduit = new bootstrap.Modal('#modalModiferProduit', {
-   });
-   modalModifierProduit.show();
-}
-
 const montrerFormEnleverProduit = (leProduit) => {
 	document.getElementById('idForms').innerHTML = modalEnleverProduits(leProduit);
 	const modalEnleverProduit = new bootstrap.Modal('#modalEnleverProduit', {
@@ -129,69 +121,59 @@ const montrerFormEnleverProduit = (leProduit) => {
    modalEnleverProduit.show();
 }
 
-const modalModifierProduits = () => {
-   return `
-	   <!-- Modal enregistrer produit -->
-   <div class="modal fade" id="modalModiferProduit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	   <div class="modal-dialog">
-		   <div class="modal-content">
-			   <div class="modal-header">
-				   <h1 class="modal-title fs-5" id="exampleModalLabel">Modification d'un produit</h1>
-				   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-			   </div>
-			   <div class="modal-body">
-				   <!-- Formulaire enregistrer produit -->
-				   <form id="formEnregProduit" class="row">
-						<div class="col-md-3">
-							<label for="num" class="form-label">Numéro</label>
-							<input type="text" class="form-control is-valid" id="mdnum" name="mdnum" readonly>
-						</div>
+const montrerFormModifierProduit = (leProduit) => {
+   let form = `
+   <!-- Modal pour enregistrer produit -->
+	   <div class="modal fade" id="enregModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		   <div class="modal-dialog">
+			   <div class="modal-content">
+				   <div class="modal-header">
+					   <h5 class="modal-title" id="exampleModalLabel">Enregistrer produit</h5>
+					   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				   </div>
+				   <div class="modal-body">
+				   <form id="formEnreg">
 					   <div class="col-md-6">
-						   <label for="nom" class="form-label">Titre</label>
-						   <input type="text" class="form-control is-valid" id="mdnom" name="mdnom" required>
-					   </div>
-					   <div class="col-md-3">
-						   <label for="annee" class="form-label">Annee de diffusion</label>
-						   <input type="number" class="form-control is-valid" id="mdannee" name="mdannee" required>
-					   </div>
-					   <div class="col-md-3">
-						   <label for="runtime" class="form-label">Durée du produit</label>
-						   <input type="number" class="form-control is-valid" id="mdruntime" name="mdruntime" required>
-					   </div>
-					   <div class="col-md-12">
-						   <label for="genres" class="form-label">Categs</label>
-						   <input type="text" class="form-control is-valid" id="mdgenres" name="mdgenres" required>
+						   <label for="nom" class="form-label">Nom</label>
+						   <input type="text" class="form-control is-valid" id="nom" name="nom" required>
 					   </div>
 					   <div class="col-md-6">
-						   <label for="director" class="form-label">Directeur</label>
-						   <input type="text" class="form-control is-valid" id="mddirector" name="mddirector" required>
+						   <label for="categorie" class="form-label">Catégorie</label>
+						   <input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
 					   </div>
 					   <div class="col-md-12">
-						   <label for="actors" class="form-label">Acteurs</label>
-						   <input type="text" class="form-control is-valid" id="mdactors" name="mdactors" required>
+						   <label for="description" class="form-label">description</label>
+						   <input type="text" class="form-control is-valid" id="description" name="description" required>
+					   </div>
+					   <div class="col-md-6">
+						   <label for="prix" class="form-label">Prix</label>
+						   <input type="numeric" class="form-control is-valid" id="prix" name="prix" required>
+					   </div>
+					   <div class="col-md-6">
+						   <label for="qt_inventaire" class="form-label">Inventaire</label>
+						   <input type="numeric" class="form-control is-valid" id="qt_inventaire" name="qt_inventaire" required>
 					   </div>
 					   <div class="col-md-12">
-						   <label for="plot" class="form-label">Plot</label>
-						   <input type="text" class="form-control is-valid" id="mdplot" name="mdplot" required>
+						   <label for="pochette" class="form-label">Pochette Produit</label>
+						   <input type="file" class="form-control is-valid" id="pochette" name="pochette" required>
 					   </div>
-					   <div class="col-md-12">
-                            <label for="posterUrl" class="form-label">Poster Link</label>
-                            <input type="text" class="form-control is-valid" id="posterUrl" name="posterUrl" required>
-                        </div>
-					   <div class="col-12 btn-enreg">
-					   <br>
-						   <button class="btn btn-primary" type="button" onClick="modifierProduit();">Modifier</button>
-						   <button class="btn btn-danger" type="reset">Vider</button>
-						   <span id="msge"></span>
+					   <br/>
+					   <div class="col-12">
+						   <button class="btn btn-primary" type="button" onClick="enregistrerProduit();">Enregistrer</button>
 					   </div>
 				   </form>
-				   <!-- Fin du formulaire enregistrer produit -->
+				   </div>
+				   <div class="modal-footer">
+				   </div>
 			   </div>
 		   </div>
 	   </div>
-   </div>
-   <!-- Fin modal enregistrer produit -->
+	   <!-- Fin du modal pour enregistrer produit -->
    `;
+   document.getElementById('contenu').innerHTML = form;
+   let myModal = new bootstrap.Modal(document.getElementById('enregModal'), {});
+   myModal.show();
+   mettreDonneesDansFormModifierProduit(leProduit)
 }
 
 
@@ -243,7 +225,7 @@ const creerCard = (unProduit) => {
 	<div class="card-group">
 		<div class="card mb-3" >
 			<div class="no-gutters card-container">
-				<div class="col-md-4">
+				<div class="col-md-3">
 					<img class="card-img-top" src="../../${unProduit.pochette}" alt="Card image cap">
 				</div>
 				<div class="col-md-8">
@@ -316,8 +298,10 @@ const listerAvecCards = (listeProduits) => {
 	}
 	resultat += "</div>";
 	// document.getElementsByClassName('container')[0].innerHTML = construireNav();
-	construireNav();
-	document.getElementsByClassName('container')[0].innerHTML += resultat;
+	if (document.body.firstElementChild.nextElementSibling.id == "contenu") {
+		construireNav();
+	}
+	document.getElementsByClassName('container')[0].innerHTML = resultat;
 }
   
 const mettreDonneesDansFormModifierProduit = (unProduit) => {

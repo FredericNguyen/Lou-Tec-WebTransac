@@ -25,6 +25,11 @@
          return DaoProduit::getDaoProduit()->MdlF_Enregistrer($produit); 
     }
 
+    function CtrF_Modifier(){
+        $produit = new Produit($_POST['idP'], $_POST['nom'],$_POST['categorie'], $_POST['description'], $_POST['prix'], $_POST['qt_inventaire'],"Pochette");
+        return DaoProduit::getDaoProduit()->MdlF_Modifier($produit); 
+   }
+
     function CtrF_getAll(){
          return DaoProduit::getDaoProduit()->MdlF_getAll(); 
     }
@@ -33,18 +38,25 @@
         return DaoProduit::getDaoProduit()->MdlF_Enlever($_POST['idP']); 
    }
 
-   function CtrF_listerParCateg(){
-    return DaoProduit::getDaoProduit()->MdlF_listerParCateg($_POST['categorie']); 
+    function CtrF_listerParCateg(){
+        return DaoProduit::getDaoProduit()->MdlF_listerParCateg($_POST['categorie']);
     }
 
     function CtrF_getCateg(){
         return DaoProduit::getDaoProduit()->MdlF_getCateg(); 
-        }
+    }
+
+    function CtrF_chercher(){
+        return DaoProduit::getDaoProduit()->MdlF_chercher($_POST['chercher']); 
+    }
+
     function CtrP_Actions(){
         $action=$_POST['action'];
         switch($action){
             case "enregistrer" :
                 return  $this->CtrF_Enregistrer();
+            case "modifier" :
+                return  $this->CtrF_Modifier();
             case 'supprimer' :
                 return  $this->CtrF_Enlever();
             case "lister" :
@@ -53,6 +65,8 @@
                 return $this->CtrF_listerParCateg();
             case "categories":
                 return $this->CtrF_getCateg();
+            case "chercher":
+                return $this->CtrF_chercher();
         }
         // Retour de la réponse au client
        

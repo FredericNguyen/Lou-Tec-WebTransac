@@ -1,5 +1,5 @@
 let listeProduits = [];
-let listeCategories = [];
+let listeCategories = [{'nom': 'categ1'}, {'nom': 'categ2'}, {'nom': 'categ3'}];
 
 let validerFormEnreg = () => {
     etat = true;
