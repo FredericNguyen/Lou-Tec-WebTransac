@@ -24,6 +24,9 @@
         <link rel="stylesheet" href="../../client/css/styles.css">
         <script src="../../client/utilitaires/jquery-3.6.3.min.js"></script>
         <script src="../../client/js/global.js"></script>
+        <script src="../../client/Membre/requetesMembre.js"></script>
+        <script src="../../client/Membre/vuesMembre.js"></script>
+
     </head>
     <body>
         <?php
