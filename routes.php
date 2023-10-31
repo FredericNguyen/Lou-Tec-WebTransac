@@ -11,9 +11,7 @@
     }
 
     function CtrM_Membre(){
-
-        $instanceCtr = ControleurProduit::getControleurProduit();
-        echo $instanceCtr->CtrP_Actions();
+        CtrM_Actions();
     }
 
     function CtrR_Actions_Routes(){

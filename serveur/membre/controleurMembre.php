@@ -11,5 +11,13 @@
 
         $membre = new Membre(0,$nom,$prenom,$courriel,$sexe,$daten," ");
         Mdl_Ajouter($membre,$_POST['mdp']);
+    
+    }
+    function CtrM_Actions(){
+        $action=$_POST['action'];
+        switch($action){
+            case "ajouter" :
+                return  Ctr_Ajouter();
+        }
     }
 ?>

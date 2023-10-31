@@ -14,7 +14,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>REN-TEC - Accueil</title>
+        <title>REN-TEC - Membre</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
@@ -48,50 +48,23 @@
                 </div>
             </div>
         </nav>
-        <section class="page-section clearfix">
-            <div class="container">
-                <div class="intro">
-                    <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="client/assets/img/intro.jpg" alt="..." />
-                    <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                        <h2 class="section-heading mb-4">
-                            <span class="section-heading-upper">Fresh Coffee</span>
-                            <span class="section-heading-lower">Worth Drinking</span>
-                        </h2>
-                        <p class="mb-3">Every cup of our quality artisan coffee starts with locally sourced, hand picked ingredients. Once you try it, our coffee will be a blissful addition to your everyday morning routine - we guarantee it!</p>
-                        <div class="intro-button mx-auto"><a class="btn btn-primary btn-xl" href="#!">Visit Us Today!</a></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="page-section cta">
-            <div class="container">
-                <div class="row">
-                        <div class="card" style="width: 18rem;">
-                            <img src="./client/assets/img/products-01.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">RÉCUREUSE (LAVEUSE) À PLANCHER 28″-34″</h5>
-                                <p class="card-text"><span>Prix Jour: 236$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./client/assets/img/products-02.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">CHARIOT TÉLESCOPIQUE 10000 LB - DIECI - ICARUS 45.17</h5>
-                                <p class="card-text"><span>Prix Jour: 910$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./client/assets/img/products-03.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">CÂBLE DE NYLON - 7/8″ X 300</h5>
-                                <p class="card-text"><span>Prix Jour: 51$ <br></span><span>VOIR PLUS DE DÉTAILS</span></p>
-                            </div>
-                        </div>
-                </div>
-                <form id="formDec" action="../connexion/controleurConnexion.php" method="POST">
-                    <input type="hidden" name="action" value="deconnexion">          
-            </div>
-        </section>
+        <div class="container" id="contenu"></div>
+  <!-- Modal du panier -->
+  <div class="modal fade" id="idModPanier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="contenuPanier"></div>
+      </div>
+    </div>
+  </div>
+</div>
+ <!-- Fin du modal du panier -->
+  <form id="dc" action="../connexion/deconnecter.php" method="POST"></form>
+  <script src="../../../client/public/js/panier.js"></script>
         <?php
             require_once('../includes/footer.php')
         ?>
