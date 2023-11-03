@@ -11093,3 +11093,12 @@ p {
 #msg {
   color: red;
 }
+
+.photo{
+    color: ghostwhite;
+    border-radius: 10%;
+    padding-left: 10px;
+    float:"right";
+    margin-right: 25px;
+    margin-left: 15px;
+}

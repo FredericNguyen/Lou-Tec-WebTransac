@@ -45,9 +45,8 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('formDec').submit();">Deconnexion</a></li>
                     </ul>
                     <div class="photo">
-                        <?php echo $_SESSION['prenom'].", ".$_SESSION['nom']."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='".$_SESSION['photo']."' width=48 height=48>"; ?>
+                        <?php echo "  Bienvenu, ".$_SESSION['prenom'].", ".$_SESSION['nom']."  <img src='".$_SESSION['photo']."' width=48 height=48>"; ?>
                     </div>
-                    <?php echo $_SESSION['prenom'].', '.$_SESSION['nom']; ?>
                 </div>
             </div>
         </nav>
@@ -74,6 +73,5 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="client/js/scripts.js"></script>
     </body>
 </html>
