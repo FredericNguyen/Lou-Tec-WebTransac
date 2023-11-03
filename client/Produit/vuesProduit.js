@@ -213,15 +213,6 @@ const editerProduit = (numProduit) => {
    montrerFormModifierProduit(leProduit);
 }
 
-const formatProduitTexte = (texte) => {
-	MAX_LENGTH = 230;
-	if (texte.length > MAX_LENGTH) {
-		let resultat = texte.substring(0, MAX_LENGTH)
-		return resultat+="..."
-	}
-	return texte
-}
-
 const creerCard = (unProduit) => {
 	const webLink = "https";
 	if (unProduit.pochette.substring(0, webLink.length) != webLink) {

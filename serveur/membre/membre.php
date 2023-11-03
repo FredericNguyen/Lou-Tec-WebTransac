@@ -26,14 +26,13 @@
         <script src="../../client/js/global.js"></script>
         <script src="../../client/Membre/requetesMembre.js"></script>
         <script src="../../client/Membre/vuesMembre.js"></script>
-
     </head>
-    <body>
+    <body onLoad="chargerProduitsFETCH(); chargerCategoriesFETCH();">
         <?php
             require_once('../includes/header.php');
         ?>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="margin-bottom: 20px;">
             <div class="container">
                 <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.php">REN-TEC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -51,27 +50,25 @@
             </div>
         </nav>
         <div class="container" id="contenu"></div>
-  <!-- Modal du panier -->
-  <div class="modal fade" id="idModPanier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div id="contenuPanier"></div>
-      </div>
-    </div>
-  </div>
-</div>
- <!-- Fin du modal du panier -->
-  <form id="dc" action="../connexion/deconnecter.php" method="POST"></form>
-  <script src="../../../client/public/js/panier.js"></script>
+        <!-- Modal du panier -->
+        <div class="modal fade" id="idModPanier" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="contenuPanier"></div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- Fin du modal du panier -->
+        <form id="dc" action="../connexion/deconnecter.php" method="POST"></form>
         <?php
             require_once('../includes/footer.php')
         ?>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
     </body>
 </html>
