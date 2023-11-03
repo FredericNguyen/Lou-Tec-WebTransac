@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="../../client/css/styles.css">
         <script src="../../client/utilitaires/jquery-3.6.3.min.js"></script>
         <script src="../../client/js/global.js"></script>
+        <script src="../../client/Membre/panier.js"></script>
         <script src="../../client/Membre/requetesMembre.js"></script>
         <script src="../../client/Membre/vuesMembre.js"></script>
     </head>
@@ -44,7 +45,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('formDec').submit();">Deconnexion</a></li>
                     </ul>
                     <div class="photo">
-                        <?php echo "  Bienvenu, ".$_SESSION['prenom'].", ".$_SESSION['nom']."  <img src='".$_SESSION['photo']."' width=48 height=48>"; ?>
+                        <?php echo "  Bienvenu, ".$_SESSION['prenom'].", ".$_SESSION['nom']."  <img src='".$_SESSION['photo']."' width=48 height=48>"."  <img src='../../client/assets/img/cart.svg' onClick='afficherPanier();' width=48 height=48>"; ?>
                     </div>
                 </div>
             </div>

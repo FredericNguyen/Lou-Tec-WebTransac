@@ -43,7 +43,7 @@ const creerCard = (unProduit) => {
 						<p class="card-text">Prix: ${unProduit.prix} $ | Inventaire: ${unProduit.qt_inventaire}</p>
 						<p class="card-text">${formatProduitTexte(unProduit.description)}</p>
 						<div class="div-icones">
-                        <img src="../../client/assets/img/cart.svg" onClick=';'></img>
+                        <img src="../../client/assets/img/cart.svg" onClick='ajouterPanier(${unProduit.idP});'></img>
 						</div>
 					</div>
 				</div>

@@ -11095,7 +11095,7 @@ p {
 }
 
 .photo{
-    color: ghostwhite;
+    background-color: ghostwhite;
     border-radius: 10%;
     padding-left: 10px;
     float:"right";

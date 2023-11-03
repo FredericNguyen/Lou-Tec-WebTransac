@@ -102,8 +102,8 @@ let afficherPanier = () => {
                     </div> 
         `;
     let listeArticlesAchetes = [];
-    panier.forEach(idArticle => {
-        listeArticlesAchetes.push(listeArticles.find(unArticle => unArticle.ida == idArticle));
+    panier.forEach(idProduit => {
+        listeArticlesAchetes.push(listeProduits.find(unArticle => unArticle.idP == idProduit));
     });
     let totalAchat = 0;
     let montantTotalCetArticle;
@@ -112,13 +112,13 @@ let afficherPanier = () => {
         vuePanier += ` 
             <div class="row border-top border-bottom">
                 <div class="row align-items-center">
-                    <div class="col-2"><img class="img-fluid" src="../../images_articles/${unArticle.imageart}"></div>
+                    <div class="col-2"><img class="img-fluid" src="../../${unArticle.pochette}"></div>
                     <div class="col">
-                        <div class="row text-muted">${unArticle.nomarticle}</div>
+                        <div class="row text-muted">${unArticle.nom}</div>
                     </div>
                     <div class="col"> <input type="number" id="qte" name="qte" min="1" max="100" value=1 onChange="ajusterTotalAchat(this,${unArticle.prix}, ${montantTotalCetArticle});"></div>
                     <div class="col">${montantTotalCetArticle}$</div>
-                    <div class="col"><div class="close closeBtn" onClick="enleverArticle(this,${unArticle.ida});">&#10005;</div></div>
+                    <div class="col"><div class="close closeBtn" onClick="enleverArticle(this,${unArticle.idP});">&#10005;</div></div>
                 </div>
             </div>
         
