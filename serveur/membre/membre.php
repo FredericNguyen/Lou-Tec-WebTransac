@@ -44,6 +44,9 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/devenirMembre.php">Profil</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('formDec').submit();">Deconnexion</a></li>
                     </ul>
+                    <div class="photo">
+                        <?php echo $_SESSION['prenom'].", ".$_SESSION['nom']."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='".$_SESSION['photo']."' width=48 height=48>"; ?>
+                    </div>
                     <?php echo $_SESSION['prenom'].', '.$_SESSION['nom']; ?>
                 </div>
             </div>

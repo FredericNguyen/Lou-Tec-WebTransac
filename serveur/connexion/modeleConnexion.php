@@ -24,6 +24,7 @@
                         $_SESSION['role'] = 'M';
                         $_SESSION['prenom'] =  $ligne2->prenom;
                         $_SESSION['nom'] =  $ligne2->nom;
+                        $_SESSION['photo'] = "../membre/photos/".$ligne2->photo;
                         header('Location: ../membre/membre.php'); //on se dirige vers la page membre.
                         exit();
                     }

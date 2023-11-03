@@ -145,7 +145,7 @@
                             <div class="col-md-10">
                                 <label for="photo" class="form-label">Photo</label>
                                 <input type="file" class="form-control is-valid" id="photo" name="photo">
-                                <input type="hidden" class="form-control is-valid" id="type" name="type" value="membre" required>
+                                <input type="hidden" class="form-control is-valid" id="type_req" name="type_req" value="membre" required>
                                 <input type="hidden" class="form-control is-valid" id="action" name="action" value="ajouter" required>
                             </div> 
                             <div class="col-6">
