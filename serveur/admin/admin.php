@@ -43,10 +43,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>
               </li>
+              <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('formDec').submit();">Deconnexion</a></li>
             </ul>
           </div>
         </div>
       </nav>
+      <form id="dc" action="../connexion/deconnecter.php" method="POST"></form>
       <!-- Fin de barre de navigation -->
       <div class="container" id="contenu" ></div>
 </body>
