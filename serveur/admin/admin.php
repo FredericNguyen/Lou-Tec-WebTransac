@@ -27,26 +27,31 @@
 <body>
     <!-- Barre de navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Admin</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript: chargerProduitsFETCH();">Gérer Produits</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript: chargerCategoriesFETCH(); chargerProduitsFETCH();">Gérer Produits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>
+            </li>
+            <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('dc').submit();">Deconnexion</a></li>
+          </ul>
         </div>
-      </nav>
+      </div>
+      <form id="dc" action="../connexion/controleurConnexion.php" method="POST">
+      <input type="hidden" class="form-control is-valid" id="action_con" name="action_con" value="deconnexion" required>
+      </form>
+    </nav>
+      
       <!-- Fin de barre de navigation -->
       <div class="container" id="contenu" ></div>
 </body>

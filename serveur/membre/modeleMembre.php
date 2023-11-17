@@ -3,15 +3,15 @@
 
     function chargerPhoto($nom, $prenom){
         $photo = "avatar_membre.png";
-        $dossierPhotos = "photos/";
+        $dossierPhotos = __DIR__."/photos/";
         $objPhotoRecue = $_FILES['photo'];
         if( $objPhotoRecue['tmp_name'][0]!== ""){ // tester si une photo a été uplodée
             $nouveauNom = sha1($nom.$prenom.time()); // Générateur d'un string unique comme nom du fichier uplodé
             // Nom original du fichier uplodé $objPhotoRecue -> name
             // strrchr : cherche le point (.) dans le nom du fichier à partir de la droit
-            $extension = strrchr($objPhotoRecue['name'][0],".");  // Obtenir l'extension du fichier original
+            $extension = strrchr($objPhotoRecue['name'],".");  // Obtenir l'extension du fichier original
             $photo = $nouveauNom.$extension;
-            @move_uploaded_file($objPhotoRecue['tmp_name'][0],$dossierPhotos.$photo);
+            @move_uploaded_file($objPhotoRecue['tmp_name'],$dossierPhotos.$photo);
         }
         return $photo;
     }
@@ -50,7 +50,7 @@
         }catch(Exception $e) {
             $msg = 'Erreur : '.$e->getMessage();
         }finally{
-            header("Location: ../../index.php?msg=$msg");
+            header("Location: index.php?msg=$msg");
             exit;
         }
     }

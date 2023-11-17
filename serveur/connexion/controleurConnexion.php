@@ -14,7 +14,7 @@
         exit();
     }
 
-    $action = $_POST['action'];
+    $action = $_POST['action_con'];
     switch($action){
         case 'connexion' : 
             Ctr_connexion(); //echo Ctr_connexion();

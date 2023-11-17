@@ -34,3 +34,12 @@ let montrerToast = (msg) =>{
 		toastList[0].show();
 	}
 }
+
+const formatProduitTexte = (texte) => {
+	MAX_LENGTH = 230;
+	if (texte.length > MAX_LENGTH) {
+		let resultat = texte.substring(0, MAX_LENGTH)
+		return resultat+="..."
+	}
+	return texte
+}

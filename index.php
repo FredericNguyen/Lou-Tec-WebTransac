@@ -107,7 +107,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        <form id="formEnreg" action="serveur/membre/controleurMembre.php" method="POST" enctype="multipart/form-data" class="row g-3" onsubmit="return validerFormEnreg();">
+                        <form id="formEnreg" action="routes.php" method="POST" enctype="multipart/form-data" class="row g-3" onsubmit="return validerFormEnreg();">
                             <div class="col-md-4">
                                 <label for="prenom" class="form-label">Prénom</label>
                                 <input type="text" class="form-control is-valid" id="prenom" name="prenom" required>
@@ -145,6 +145,8 @@
                             <div class="col-md-10">
                                 <label for="photo" class="form-label">Photo</label>
                                 <input type="file" class="form-control is-valid" id="photo" name="photo">
+                                <input type="hidden" class="form-control is-valid" id="type_req" name="type_req" value="membre" required>
+                                <input type="hidden" class="form-control is-valid" id="action" name="action" value="ajouter" required>
                             </div> 
                             <div class="col-6">
                                 <button class="btn btn-primary" type="submit">Enregistrer</button>
@@ -175,7 +177,7 @@
                                     <label for="mdpco" class="form-label">Mot Passe</label>
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
-                                <input type="hidden" name="action" value="connexion">
+                                <input type="hidden" name="action_con" value="connexion">
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">Connexion</button>
                                 </div>

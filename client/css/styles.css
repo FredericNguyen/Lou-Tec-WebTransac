@@ -11067,3 +11067,38 @@ p {
 #chercher {
   display: flex;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.card-img-top {
+  margin-left: 40px;
+  width: 150px;
+  height: 150px;
+}
+
+.card.mb-3 {
+  height: 355px;
+  padding: 12px;
+  background-color: rgb(245, 245, 245);
+}
+
+#form_chercher {
+  display: flex;
+}
+
+#msg {
+  color: red;
+}
+
+.photo{
+    background-color: ghostwhite;
+    border-radius: 10%;
+    padding-left: 10px;
+    float:"right";
+    margin-right: 25px;
+    margin-left: 15px;
+}
