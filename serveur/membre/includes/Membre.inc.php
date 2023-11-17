@@ -48,7 +48,7 @@
         public function setDaten($daten){
             $this->daten=$daten;
         }
-
+        
         public function setPhoto($photo){
             $this->photo=$photo;
         }
