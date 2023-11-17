@@ -177,7 +177,7 @@
                                     <label for="mdpco" class="form-label">Mot Passe</label>
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
-                                <input type="hidden" name="action" value="connexion">
+                                <input type="hidden" name="action_con" value="connexion">
                                 <div class="col-12">
                                     <button class="btn btn-primary" type="submit">Connexion</button>
                                 </div>

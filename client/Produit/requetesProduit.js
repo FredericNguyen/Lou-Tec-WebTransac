@@ -57,20 +57,24 @@ const chargerProduitsFETCH = async () => {
 }
 
 const chargerProduitsFETCHCateg = async () => {
-	const url = "../../routes.php";
-	let categorie = document.getElementById("selectedCateg").value;
-	let formData = new FormData();
-	formData.append('action','listerParCateg');
-	formData.append('type_req','produit');
-	formData.append('categorie',categorie);
-	const optionsFetch = {
-		method: "POST",
-		body: formData
+	if (document.getElementById("selectedCateg").value == "Tout") {
+		chargerProduitsFETCH();
+	} else {
+		const url = "../../routes.php";
+		let categorie = document.getElementById("selectedCateg").value;
+		let formData = new FormData();
+		formData.append('action','listerParCateg');
+		formData.append('type_req','produit');
+		formData.append('categorie',categorie);
+		const optionsFetch = {
+			method: "POST",
+			body: formData
+		}
+		const reponse = await fetch( url, optionsFetch);
+		reponseJSON = await reponse.json();
+		listeProduits = reponseJSON.listeProduits;
+		listerAvecCards(reponseJSON);
 	}
-	const reponse = await fetch( url, optionsFetch);
-	reponseJSON = await reponse.json();
-	listeProduits = reponseJSON.listeProduits;
-	listerAvecCards(reponseJSON);
 }
 
 const chargerCategoriesFETCH = async () => {

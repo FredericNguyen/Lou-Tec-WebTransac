@@ -42,7 +42,7 @@
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="index.php">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/about.php">About</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="serveur/devenirMembre.php">Profil</a></li>
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('formDec').submit();">Deconnexion</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('dc').submit();">Deconnexion</a></li>
                     </ul>
                     <div class="photo">
                         <?php echo "  Bienvenu, ".$_SESSION['prenom'].", ".$_SESSION['nom']."  <img src='".$_SESSION['photo']."' width=48 height=48>"."  <img src='../../client/assets/img/cart.svg' onClick='afficherPanier();' width=48 height=48>"; ?>
@@ -65,7 +65,9 @@
         </div>
         </div>
         <!-- Fin du modal du panier -->
-        <form id="dc" action="../connexion/deconnecter.php" method="POST"></form>
+        <form id="dc" action="../connexion/controleurConnexion.php" method="POST">
+      <input type="hidden" class="form-control is-valid" id="action_con" name="action_con" value="deconnexion" required>
+      </form>
         <?php
             require_once('../includes/footer.php')
         ?>
