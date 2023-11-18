@@ -3,6 +3,8 @@
     declare (strict_types=1);
     require_once(__DIR__."/serveur/Produit/ControleurProduit.php");
     require_once(__DIR__."/serveur/Membre/ControleurMembre.php");
+    require_once(__DIR__."/serveur/admin/ControleurAdmin.php");
+    
 
     function CtrP_Produit(){
 
@@ -13,7 +15,6 @@
     function CtrM_Membre(){
         CtrM_Actions();
     }
-
     function CtrR_Actions_Routes(){
         $action=$_POST['type_req'];
         switch($action){
@@ -21,10 +22,12 @@
                 return  CtrP_Produit();
             case 'membre' :
                 return  CtrM_Membre();
+            case 'lister_Membres' :
+            case 'activer_desactiver':
+                return ControleurAdmin::getControleurAdmin()->Ctr_Admin();
         }
         // Retour de la réponse au client
        
     }
-
     echo CtrR_Actions_Routes();
 ?>

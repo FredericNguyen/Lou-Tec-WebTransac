@@ -18,7 +18,7 @@
 			$idm = $_POST['idm'];
             return DaoAdmin::getDaoAdmin()->MdlAdmin_activerDesactiverMembre($idm);
         }
-        function CtrAdmin_actions(){
+        function Ctr_Admin(){
             $action = $_POST['action'];
             switch ($action) {
                 case 'lister_Membres':
