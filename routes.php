@@ -22,9 +22,8 @@
                 return  CtrP_Produit();
             case 'membre' :
                 return  CtrM_Membre();
-            case 'lister_Membres' :
-            case 'activer_desactiver':
-                return ControleurAdmin::getControleurAdmin()->Ctr_Admin();
+            case 'admin' :
+                return Ctr_Admin();
         }
         // Retour de la réponse au client
        

@@ -18,14 +18,15 @@
 			$idm = $_POST['idm'];
             return DaoAdmin::getDaoAdmin()->MdlAdmin_activerDesactiverMembre($idm);
         }
-        function Ctr_Admin(){
-            $action = $_POST['action'];
-            switch ($action) {
-                case 'lister_Membres':
-                    return $this->CtrAdmin_listerMembres();
-                case'activer_desactiver':
-                    return $this->CtrAdmin_activerDesactiverMembre();
-       		 }
-		}
-	}
+    }
+    function Ctr_Admin(){
+        $action = $_POST['action'];
+        switch ($action) {
+            case 'lister_Membres':
+                ControleurAdmin::getControleurAdmin();
+                return  ControleurAdmin::getControleurAdmin()->CtrAdmin_listerMembres();
+            case'activer_desactiver':
+                return  ControleurAdmin::getControleurAdmin()->CtrAdmin_activerDesactiverMembre();
+            }
+    }
 ?>

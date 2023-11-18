@@ -1,6 +1,9 @@
 function listerMembres(){
+	alert("ok");
 	let formMembre = new FormData();
 	formMembre.append('action','lister_Membres');
+	formMembre.append('type_req','admin');
+	alert(formMembre.get('type_req'));
 	$.ajax({
 		type : 'POST',
 		url : "../../routes.php",
@@ -29,6 +32,7 @@ function activeDesactiveMembre(code, etat){
 	formMembre.append('statut', etat);
 	formMembre.append('idm', code);
 	formMembre.append('action','activer_desactiver');
+	formMembre.append('type_req','admin');
 	$.ajax({
 		type : 'POST',
 		url : "../../routes.php",

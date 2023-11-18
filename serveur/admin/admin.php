@@ -23,6 +23,8 @@
     <script src="../../client/js/global.js"></script>
     <script src="../../client/Produit/requetesProduit.js"></script>
     <script src="../../client/Produit/vuesProduit.js"></script>
+    <script src="../../client/Admin/requetesAdmin.js"></script>
+    <script src="../../client/Admin/vuesAdmin.js"></script>
 </head>
 <body>
     <!-- Barre de navigation -->
@@ -41,7 +43,7 @@
               <a class="nav-link" href="javascript: chargerCategoriesFETCH(); chargerProduitsFETCH();">Gérer Produits</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="javascript: chargerVoyagesFETCH();">Gérer Membres</a>
+              <a class="nav-link" href="javascript: listerMembres();">Gérer Membres</a>
             </li>
             <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="javascript: document.getElementById('dc').submit();">Deconnexion</a></li>
           </ul>
