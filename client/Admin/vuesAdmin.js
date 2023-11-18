@@ -23,9 +23,9 @@ function modifierStatutDansTableMembre(idMembre){
     cell.textContent = nStatut;
     let icon = cell.nextSibling;
     if(nStatut ==="Inactif")
-        icon.innerHTML = `<i onClick="activerDesactiverMembre(${idMembre});"class="fa fa-toggle-off"></i>`;
+        icon.innerHTML = `<i style="color:red;" onClick="activerDesactiverMembre(${idMembre});"class="fa fa-toggle-off"></i>`;
     else
-        icon.innerHTML = `<i onClick="activerDesactiverMembre(${idMembre});"class="fa fa-toggle-on"></i>`;
+        icon.innerHTML = `<i style="color:red;" onClick="activerDesactiverMembre(${idMembre});"class="fa fa-toggle-on"></i>`;
     return nStatut.substring(0,1);
 } 
 let activerDesactiverMembre = (idMembre) =>{
@@ -47,9 +47,9 @@ let construireRow = (obj) =>{
     result +=  `<td id= ${idRow}>${obj.statut}</td>`;
     //result +=  `<td><img src=${obj.photo}></td>`;
     if(obj.statut === "Inactif")
-        result +=  `<td><i onClick="activerDesactiverMembre(${obj.idm});"class="fa fa-toggle-off"></i></td>`;
+        result +=  `<td><i style="color:red;" onClick="activerDesactiverMembre(${obj.idm});"class="fa fa-toggle-off"></i></td>`;
     else
-        result +=  `<td><i onClick="activerDesactiverMembre(${obj.idm});"class="fa fa-toggle-on"></i></td>`;
+        result +=  `<td><i style="color:red;" onClick="activerDesactiverMembre(${obj.idm});"class="fa fa-toggle-on"></i></td>`;
     //result +=  `<td><button onClick="activerDesactiverMembre(${obj.idm});"><i style='color:red' class="fa fa-power-off" aria-hidden="true"></i></button></td>`;
     result +=  "</tr>"; 
     return result;
