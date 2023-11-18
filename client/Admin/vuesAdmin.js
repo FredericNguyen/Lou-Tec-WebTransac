@@ -57,8 +57,8 @@ let construireRow = (obj) =>{
 let constructTable = (tableau) => {
    resultat =  `<table class="table table-success table-striped table-hover">
                     <caption style="color: red;font-weight:bolder;text-align:center;" align="top"><h2>Liste Des Membres</h2><caption>
-                    <thead>
-                        <tr> 
+                    <thead >
+                        <tr class="table-dark"> 
                             <th scope="col">#</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Prenom</th>
