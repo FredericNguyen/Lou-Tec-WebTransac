@@ -5,8 +5,8 @@ let montrerFormEnregProduit = () => {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-						<img src="../assets/img/iconLevier.png">
-                        <h5 class="modal-title" id="exampleModalLabel">Enregistrer Produit</h5>
+						<img src="../../client/assets/img/mini-pelle.png">
+                        <h5 class="modal-title w-100 text-center text-success fw-bold" id="exampleModalLabel">Enregistrer Produit</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -130,7 +130,8 @@ const montrerFormModifierProduit = (leProduit) => {
 		   <div class="modal-dialog">
 			   <div class="modal-content">
 				   <div class="modal-header">
-					   <h5 class="modal-title" id="exampleModalLabel">Enregistrer produit</h5>
+				   	   <img src="../../client/assets/img/mini-pelle.png">
+					   <h5 class="modal-title w-100 text-center text-success fw-bold" id="exampleModalLabel">Modifier Produit</h5>
 					   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				   </div>
 				   <div class="modal-body">
@@ -164,7 +165,7 @@ const montrerFormModifierProduit = (leProduit) => {
 						   <input type="hidden" class="form-control is-valid" id="anciennePochette" name="anciennePochette" required>
 					   </div>
 					   <br/>
-					   <div class="col-12">
+					   <div class="col-4 row justify-content-center">
 						   <button class="btn btn-primary" type="button" onClick="modifierProduitFETCH();">Modifier</button>
 					   </div>
 					   <span id="msg"></span>
@@ -189,7 +190,8 @@ const modalEnleverProduits = (numId) => {
 	<div class="modal-dialog" role="document">
 	  <div class="modal-content">
 		<div class="modal-header">
-		  <h5 class="modal-title">Confirmer effacement</h5>
+		  <img src="../../client/assets/img/mini-pelle.png">
+		  <h5 class="modal-title w-100 text-center text-success fw-bold">Confirmer effacement</h5>
 		  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		  </button>
