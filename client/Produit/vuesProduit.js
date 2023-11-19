@@ -5,7 +5,8 @@ let montrerFormEnregProduit = () => {
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Enregistrer produit</h5>
+						<img src="../assets/img/iconLevier.png">
+                        <h5 class="modal-title" id="exampleModalLabel">Enregistrer Produit</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -18,10 +19,6 @@ let montrerFormEnregProduit = () => {
                             <label for="categorie" class="form-label">Catégorie</label>
                             <input type="text" class="form-control is-valid" id="categorie" name="categorie" required>
                         </div>
-                        <div class="col-md-12">
-                            <label for="description" class="form-label">description</label>
-                            <input type="text" class="form-control is-valid" id="description" name="description" required>
-                        </div>
 						<div class="col-md-6">
                             <label for="prix" class="form-label">Prix</label>
                             <input type="numeric" class="form-control is-valid" id="prix" name="prix" required>
@@ -29,6 +26,10 @@ let montrerFormEnregProduit = () => {
 						<div class="col-md-6">
                             <label for="qt_inventaire" class="form-label">Inventaire</label>
                             <input type="numeric" class="form-control is-valid" id="qt_inventaire" name="qt_inventaire" required>
+                        </div>
+						<div class="col-md-12">
+                            <label for="description" class="form-label">description</label>
+                            <input type="text" class="form-control is-valid" id="description" name="description" required>
                         </div>
 						<div class="col-md-12">
 							<label for="pochette" class="form-label">Pochette Produit</label>
