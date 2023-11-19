@@ -165,21 +165,22 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="ModalConnexionLabel">Connexion</h5>
+                        <img src="client/assets/img/connexion.png">
+                            <h5 class="modal-title w-100 text-center text-success fw-bold" id="ModalConnexionLabel">Connexion</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <form class="row g-3" id="formConnexion" action="serveur/connexion/controleurConnexion.php" method="POST">
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <label for="courrielco" class="form-label">Courriel</label>
                                     <input type="email" class="form-control" id="courrielco" name="courrielco" value="" required>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-10">
                                     <label for="mdpco" class="form-label">Mot Passe</label>
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
                                 <input type="hidden" name="action_con" value="connexion">
-                                <div class="col-12">
+                                <div class="col-12 row justify-content-center">
                                     <button class="btn btn-primary" type="submit">Connexion</button>
                                 </div>
                             </form>
