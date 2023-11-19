@@ -149,7 +149,7 @@
                                 <input type="hidden" class="form-control is-valid" id="type_req" name="type_req" value="membre" required>
                                 <input type="hidden" class="form-control is-valid" id="action" name="action" value="ajouter" required>
                             </div> 
-                            <div class="col-6">
+                            <div class="col-4 row justify-content-center" >
                                 <button class="btn btn-primary" type="submit">Enregistrer</button>
                             </div>
                         </form>
@@ -180,7 +180,7 @@
                                     <input type="password" class="form-control" pattern="[A-Za-z0-9_\$#\-]{6,10}$" id="mdpco" name="mdpco" required>
                                 </div>
                                 <input type="hidden" name="action_con" value="connexion">
-                                <div class="col-12 row justify-content-center">
+                                <div class="col-4 row justify-content-center">
                                     <button class="btn btn-primary" type="submit">Connexion</button>
                                 </div>
                             </form>
