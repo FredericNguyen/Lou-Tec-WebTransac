@@ -42,10 +42,9 @@ let construireRow = (obj) =>{
     result +=  `<td>${obj.prenom}</td>` ;
 	result +=  `<td>${obj.courriel}</td>` ;
 	result +=  `<td>${obj.sexe}</td>`;
-    result +=  `<td>${obj.datenaissance}</td>`;
-    //result +=  `<td id= ${idRow}>${obj.statut}</td>`;    
+    result +=  `<td>${obj.datenaissance}</td>`;  
     result +=  `<td id= ${idRow}>${obj.statut}</td>`;
-    //result +=  `<td><img src=${obj.photo}></td>`;
+    result +=  `<td><img src=${obj.photo}></td>`;
     if(obj.statut === "Inactif")
         result +=  `<td><i style="color:red;" onClick="activerDesactiverMembre(${obj.idm});"class="fa fa-toggle-off"></i></td>`;
     else
@@ -66,6 +65,7 @@ let constructTable = (tableau) => {
 							<th scope="col">Sexe</th>
                             <th scope="col">Date Naissance</th>
                             <th scope="col">Statut</th>
+                            <th scope="col"></th>
 							
                             <th scope="col"></th> 
                         </tr>

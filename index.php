@@ -103,16 +103,16 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Enregistrer membre</h5>
+                            <h5 class="modal-title w-100 text-center text-success fw-bold" id="exampleModalLabel" >Enregistrer Membre</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                         <form id="formEnreg" action="routes.php" method="POST" enctype="multipart/form-data" class="row g-3" onsubmit="return validerFormEnreg();">
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <label for="prenom" class="form-label">Prénom</label>
                                 <input type="text" class="form-control is-valid" id="prenom" name="prenom" required>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-5">
                                 <label for="nom" class="form-label">Nom</label>
                                 <input type="text" class="form-control is-valid" id="nom" name="nom" required>
                             </div>
@@ -120,11 +120,11 @@
                                 <label for="courriel" class="form-label">Courriel</label>
                                 <input type="email" class="form-control is-valid" id="courriel" name="courriel" required>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <label for="mdp" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdp" name="mdp" required>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-10">
                                 <label for="mdpc" class="form-label">Confirmer mot de passe</label>
                                 <input type="password" class="form-control is-valid" pattern="^[A-Za-z0-9_\$#\-]{6,10}$" id="mdpc" name="mdpc" required>
                                 <span id="msgPass"></span>
