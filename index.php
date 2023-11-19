@@ -103,6 +103,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
+                            <img src="client/assets/img/user.png">
                             <h5 class="modal-title w-100 text-center text-success fw-bold" id="exampleModalLabel" >Enregistrer Membre</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
